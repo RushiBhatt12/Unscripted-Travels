@@ -1308,3 +1308,22 @@ window.navigateToPage = navigateToPage;
 window.openTripModal = openTripModal;
 window.closeModal = closeModal;
 window.inquireNow = inquireNow;
+
+
+const circle = document.querySelector(".scroll-circle-progress");
+const radius = 18;
+const circumference = 2 * Math.PI * radius;
+circle.style.strokeDasharray = `${circumference}`;
+circle.style.strokeDashoffset = `${circumference}`;
+
+function updateCircularScroll() {
+  const doc = document.documentElement;
+  const scrollTop = doc.scrollTop || document.body.scrollTop;
+  const scrollHeight = doc.scrollHeight - doc.clientHeight;
+  const progress = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
+  const offset = circumference * (1 - progress);
+  circle.style.strokeDashoffset = offset;
+}
+
+window.addEventListener("scroll", updateCircularScroll);
+window.addEventListener("load", updateCircularScroll);
