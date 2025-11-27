@@ -1047,7 +1047,7 @@ h6 { font-size: 16px; }
   display: flex;
   align-items: center;
   height: var(--header-h);
-  padding: 0 32px;
+  padding: 0 8px;
   justify-content: space-between;
 }
 .logo {
@@ -1060,6 +1060,7 @@ h6 { font-size: 16px; }
   display: flex;
   align-items: center;
   gap: 1.1rem;
+  margin-right: auto;
 }
 .logo-icon { font-size: 30px; }
 .logo-text { font-size:1.45rem; letter-spacing: 0.04em; color: var(--c-text); font-family: var(--ff-serif); }
