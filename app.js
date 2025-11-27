@@ -295,21 +295,22 @@ const demoGalleryImages = [
     category: 'Nature'
   },
   {
-    url: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=80',
+    url: 'https://arunachal24.in/wp-content/uploads/2021/02/losar-arunachal-2021-4.jpg.webp',
     caption: 'Remote village ritual, East Siang',
     category: 'Culture'
   },
   {
-    url: 'https://images.unsplash.com/photo-1472791108553-c9405341e398?w=1200&q=80',
+    url: 'https://www.tataneu.com/pages/travel/_next/image?url=https%3A%2F%2Fd1msew97rp2nin.cloudfront.net%2Fprodin%2Ftntravel%2Fblogimages%2FMhadei%20safari%20image%206-ec03a364-8220-465e-b4d0-132062f51389.webp&w=1080&q=75',
     caption: 'Wilderness river trek, Siang',
     category: 'Community'
   },
   {
-    url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80',
+    url: 'https://i.pinimg.com/originals/f5/b0/aa/f5b0aa009a4635207166d984e4cbd9c5.jpg',
     caption: 'Apatani rice paddies, Ziro valley',
     category: 'Nature'
   },
 ];
+
 
 // == MAP DATA ==
 const mapLocations = [
