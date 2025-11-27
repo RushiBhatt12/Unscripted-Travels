@@ -2211,6 +2211,106 @@ h6 { font-size: 16px; }
 }
 .coming-soon { color:var(--c-contact-note); font-style:italic; font-family:var(--ff-sans);font-size:1.08rem; }
 
+.faq-section {
+  margin-top: 80px;
+  padding-bottom: 100px;
+}
+
+.faq-section .section-label {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 11px;
+  font-weight: 500;
+  color: #b0b5c3;
+  margin-bottom: 8px;
+}
+
+.faq-section .section-title {
+  text-align: center;
+  font-size: 44px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 36px;
+}
+
+.faq-list {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Card style identical to screenshot */
+.faq-item {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
+  padding: 18px 26px;
+}
+
+.faq-header {
+  width: 100%;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  cursor: pointer;
+  padding: 0;
+}
+
+.faq-body {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+/* Triangle icons */
+.faq-icon {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+}
+
+.faq-icon--down {
+  border-top: 9px solid #111111;
+}
+
+.faq-icon--up {
+  border-bottom: 9px solid #111111;
+}
+
+/* First item open feel – extra spacing */
+.faq-item--open .faq-body {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .faq-section {
+    margin-top: 60px;
+    padding-bottom: 80px;
+  }
+
+  .faq-section .section-title {
+    font-size: 34px;
+  }
+
+  .faq-list {
+    padding: 0 16px;
+  }
+
+  .faq-item {
+    padding: 16px 20px;
+  }
+}
+
 /* FAQ gone */
 
 /* Minimal Footer */
