@@ -290,24 +290,44 @@ const faqData = [
 // ============================================
 const demoGalleryImages = [
   {
-    url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80',
-    caption: 'Misty Arunachal valley at dawn',
+    url: 'https://raw.githubusercontent.com/RushiBhatt12/ytdownload/refs/heads/main/20241018_095959.jpg',
+    caption: 'River Side Camp, Siang',
+    category: 'Nature'
+  },
+   {
+    url: 'https://raw.githubusercontent.com/RushiBhatt12/ytdownload/refs/heads/main/20241018_100541.jpg',
+    caption: 'Hanging Bridge Made of Tree Roots, Siang',
     category: 'Nature'
   },
   {
-    url: 'https://arunachal24.in/wp-content/uploads/2021/02/losar-arunachal-2021-4.jpg.webp',
-    caption: 'Remote village ritual, East Siang',
-    category: 'Culture'
+    url: 'https://raw.githubusercontent.com/RushiBhatt12/ytdownload/refs/heads/main/20241018_102032.jpg',
+    caption: 'Hidden WaterFall, Siang',
+    category: 'Nature'
   },
   {
-    url: 'https://www.tataneu.com/pages/travel/_next/image?url=https%3A%2F%2Fd1msew97rp2nin.cloudfront.net%2Fprodin%2Ftntravel%2Fblogimages%2FMhadei%20safari%20image%206-ec03a364-8220-465e-b4d0-132062f51389.webp&w=1080&q=75',
+    url: 'https://raw.githubusercontent.com/RushiBhatt12/ytdownload/refs/heads/main/20221219_121124.jpg',
     caption: 'Wilderness river trek, Siang',
     category: 'Community'
+  },
+ {
+    url: 'https://raw.githubusercontent.com/RushiBhatt12/ytdownload/refs/heads/main/w2.png',
+    caption: 'Misty Arunachal valley at dawn',
+    category: 'Nature'
   },
   {
     url: 'https://i.pinimg.com/originals/f5/b0/aa/f5b0aa009a4635207166d984e4cbd9c5.jpg',
     caption: 'Apatani rice paddies, Ziro valley',
     category: 'Nature'
+  },
+  {
+    url: 'https://raw.githubusercontent.com/RushiBhatt12/ytdownload/refs/heads/main/night.png',
+    caption: 'Remote village ritual, East Siang',
+    category: 'Culture'
+  },
+  {
+    url: 'https://raw.githubusercontent.com/RushiBhatt12/ytdownload/refs/heads/main/(8).png',
+    caption: ' ',
+    category: ' '
   },
 ];
 
