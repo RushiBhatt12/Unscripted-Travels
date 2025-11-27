@@ -10,7 +10,7 @@ const tripsData = [
     season: 'January - February',
     price: 5725,
     groupSize: '4-6 people',
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
+    image: 'https://dwq3yv87q1b43.cloudfront.net/public/blogs/fit-in/1200x675/Blog_20241109-490819301-1731139799.jpg',
     description: 'Immerse yourself in authentic tribal culture and pristine wilderness of Arunachal Pradesh. Experience village life, forest trekking, and genuine local connections.',
     highlights: [
       'Wildlife sanctuary visit',
@@ -60,7 +60,7 @@ const tripsData = [
     season: 'May - June, September - October',
     price: 7200,
     groupSize: '4-6 people',
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80',
+    image: 'https://safarpanda.com/wp-content/uploads/cwf/2025/06/Ziro-fastival10.webp',
     description: 'Explore the land of the Apatani tribe with rice paddies, traditional villages, and breathtaking landscapes.',
     highlights: [
       'Apatani tribal villages',
@@ -115,7 +115,7 @@ const tripsData = [
     season: 'December - February',
     price: 9500,
     groupSize: '4-6 people',
-    image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80',
+    image: 'https://www.esikkimtourism.in/wp-content/uploads/2024/12/Arunachal-Pradesh-Tawang.jpg',
     description: 'Experience the majesty of Himalayan peaks, ancient monasteries, and pristine snow-covered landscapes.',
     highlights: [
       'Tawang Monastery visit',
@@ -180,7 +180,7 @@ const tripsData = [
     season: 'October - March',
     price: 6800,
     groupSize: '4-6 people',
-    image: 'https://images.unsplash.com/photo-1472791108553-c9405341e398?w=800&q=80',
+    image: 'https://krishnandusarkar.com/wp-content/uploads/2020/08/adi-tribe-household-structure-1024x684.webp',
     description: 'Remote trekking through pristine forests, ancient monasteries, and untouched wilderness.',
     highlights: [
       'Remote mountain trekking',
