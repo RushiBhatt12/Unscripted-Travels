@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unscripted Travels — Because Experiences Don't Come in Packages</title>
+  <meta name="description" content="Authentic travel experiences in Arunachal Pradesh. Small groups, real connections, immersive adventures.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <div class="logo">
+  <div class="logo-placeholder">
+    <img src="logo.png" alt="Unscripted Travels logo" class="logo-img">
+  </div>
+  <span class="logo-text">Unscripted Travels</span>
+</div>
+
+      
+      <nav class="nav" id="nav">
+        <a href="#" class="nav-link active" data-page="home">Home</a>
+        <a href="#" class="nav-link" data-page="storymap">Story Map</a>
+        <a href="#" class="nav-link" data-page="experiences">Experiences</a>
+        <a href="#" class="nav-link" data-page="gallery">Gallery</a>
+        <a href="#" class="nav-link" data-page="philosophy">Philosophy</a>
+        <a href="#" class="nav-link" data-page="contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a href="#" class="mobile-nav-link" data-page="home">Home</a>
+      <a href="#" class="mobile-nav-link" data-page="storymap">Story Map</a>
+      <a href="#" class="mobile-nav-link" data-page="experiences">Experiences</a>
+      <a href="#" class="mobile-nav-link" data-page="gallery">Gallery</a>
+      <a href="#" class="mobile-nav-link" data-page="philosophy">Philosophy</a>
+      <a href="#" class="mobile-nav-link" data-page="contact">Contact</a>
+    </nav>
+  </div>
+
+  <!-- Main Content Area -->
+  <main class="main-content" id="mainContent">
+    <!-- Pages will be dynamically loaded here -->
+  </main>
+
+  <!-- Page Templates -->
+  <template id="homePage">
+  <section class="hero" id="home">
+    <div class="hero-parallax"></div>
+    <canvas id="heroCanvas" class="hero-canvas"></canvas>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Because Experiences<br>Don't Come in Packages.</h1>
+      <p class="hero-subtitle">Unscripted journeys across untouched India.</p>
+      <div class="hero-cta">
+        <button class="btn btn-primary" onclick="navigateToPage('experiences')">Explore Real Journeys</button>
+        <button class="btn btn-secondary" onclick="navigateToPage('storymap')">Begin Your Story</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Trip Section -->
+  <section class="section featured-section" id="featured">
+    <div class="container-narrow">
+      <div class="featured-trip" id="featuredTrip">
+        <!-- Featured trip will be inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Section -->
+  <section class="section philosophy-section" id="philosophy">
+    <div class="container-narrow">
+      <p class="section-label">PHILOSOPHY</p>
+      <h2 class="section-title">Experiences Beyond Packages</h2>
+      <div class="philosophy-content">
+        <p>We believe travel should be about authentic connections, not commercial transactions. Small groups of 4-6 people, expert local guides, and direct support to communities. Digital detox through natural immersion.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trips Section -->
+  <section class="section trips-section" id="trips">
+    <div class="container-narrow">
+      <p class="section-label">EXPERIENCES</p>
+      <h2 class="section-title">Our Journeys</h2>
+      
+      <div class="trip-grid" id="tripGrid">
+        <!-- Trip cards will be dynamically inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="section stats-section">
+    <div class="container-narrow">
+      <div class="stats-minimal" id="statsMinimal">
+        <!-- Stats will be inserted here -->
+      </div>
+    </div>
+  </section>
+  </template>
+
+  <template id="experiencesPage">
+  <section class="page-section experiences-page">
+    <div class="container">
+      <div class="page-header">
+        <h1 class="page-title">Our Experiences</h1>
+        <p class="page-subtitle">Authentic journeys through Arunachal Pradesh</p>
+      </div>
+      <div class="trip-grid" id="experiencesTripGrid">
+        <!-- Trips will be dynamically inserted -->
+      </div>
+    </div>
+  </section>
+  </template>
+
+  <template id="storymapPage">
+  <section class="page-section storymap-page">
+    <div class="page-header">
+      <h1 class="page-title">Story Map</h1>
+      <p class="page-subtitle">Explore the untouched regions of Arunachal Pradesh</p>
+    </div>
+    <div class="map-container">
+      <div id="interactiveMap" class="interactive-map"></div>
+    </div>
+  </section>
+  </template>
+
+  <template id="galleryPage">
+  <section class="page-section gallery-page">
+    <div class="page-header">
+      <h1 class="page-title">Gallery</h1>
+      <p class="page-subtitle">Documentary photography from our journeys</p>
+    </div>
+    <div class="container">
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </section>
+  </template>
+
+  <template id="philosophyPage">
+  <section class="page-section philosophy-page">
+    <div class="container-narrow">
+      <div class="page-header">
+        <h1 class="page-title">Our Philosophy</h1>
+        <p class="page-subtitle">Experiences beyond packages</p>
+      </div>
+      
+      <div class="philosophy-mission glass-card">
+        <p class="philosophy-quote">Travel shaped by commerce isn't travel—it's consumption. We believe journeys should transform hearts, not just check boxes on itineraries.</p>
+        <p class="philosophy-text">In Arunachal Pradesh's remote corners, untouched by mass tourism, real India waits. Real stories. Real people. Real experiences that stay with you forever.</p>
+      </div>
+
+      <div class="values-grid" id="valuesGrid"></div>
+
+      <div class="testimonials-section">
+        <h2 class="section-heading">What Travelers Say</h2>
+        <div class="testimonial-grid" id="testimonialGrid"></div>
+      </div>
+    </div>
+  </section>
+  </template>
+
+  <template id="aboutPage">
+  <section class="page-section about-page">
+    <div class="container-narrow">
+      <div class="page-header">
+        <h1 class="page-title">About Us</h1>
+        <p class="page-subtitle">Travel with purpose, connect with authenticity</p>
+      </div>
+      
+      <div class="about-mission glass-card">
+        <h2>Our Mission</h2>
+        <p>We believe travel should be about authentic connections, not commercial transactions. Every journey is crafted to immerse you in the genuine culture and natural beauty of Arunachal Pradesh.</p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card glass-card">
+          <h3>Authentic Connections</h3>
+          <p>Direct relationships with local families, not commercialized interactions.</p>
+        </div>
+        <div class="value-card glass-card">
+          <h3>Small Batches</h3>
+          <p>Groups of 4-6 people for meaningful, personalized experiences.</p>
+        </div>
+        <div class="value-card glass-card">
+          <h3>Community First</h3>
+          <p>Money goes directly to local communities, supporting their livelihoods.</p>
+        </div>
+        <div class="value-card glass-card">
+          <h3>Digital Detox</h3>
+          <p>Immersion in nature away from screens and distractions.</p>
+        </div>
+      </div>
+
+      <div class="community-impact glass-card">
+        <h2>Community Impact</h2>
+        <div class="impact-stats">
+          <div class="impact-stat">
+            <div class="impact-number">2,847</div>
+            <div class="impact-label">Travelers Served</div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-number">34</div>
+            <div class="impact-label">Communities Supported</div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-number">5</div>
+            <div class="impact-label">Years of Excellence</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonials-section">
+        <h2 class="section-heading">What Travelers Say</h2>
+        <div class="testimonial-grid">
+          <div class="testimonial-card glass-card">
+            <p class="testimonial-text">"The most authentic experience. Real connections, incredible food, beyond expectations."</p>
+            <p class="testimonial-author">Priya Sharma, Mumbai</p>
+            <div class="testimonial-rating">★★★★★</div>
+          </div>
+          <div class="testimonial-card glass-card">
+            <p class="testimonial-text">"Exactly what we sought. Genuine community connections away from tourism."</p>
+            <p class="testimonial-author">Michael Chen, Singapore</p>
+            <div class="testimonial-rating">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </template>
+
+  <template id="contactPage">
+
+  <section class="page-section contact-page">
+    <div class="container-narrow">
+      <p class="section-label">READY TO BEGIN</p>
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="contact-description">Reach out to customize your journey.</p>
+      
+      <div class="contact-minimal">
+        <div class="contact-link">
+          <span class="contact-link-label">Phone</span>
+          <a href="tel:6358006660" target="_blank">6358006660</a>
+        </div>
+        <div class="contact-link">
+          <span class="contact-link-label">Email</span>
+          <a href="mailto:rushi.bhattt@gmail.com" target="_blank">rushi.bhattt@gmail.com</a>
+        </div>
+        <div class="contact-note">
+          <span class="contact-link-label">Instagram</span>
+          <span class="coming-soon">Coming soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  </template>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container-narrow">
+      <div class="footer-content">
+        <p>&copy; <span id="currentYear">2025</span> Unscripted Travels</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Trip Detail Modal -->
+  <div class="modal" id="tripModal">
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal-content" id="modalContent">
+      <button class="modal-close" id="modalClose" aria-label="Close modal">×</button>
+      <div class="modal-body" id="modalBody">
+        <!-- Modal content will be dynamically inserted -->
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
