@@ -3247,3 +3247,43 @@ h6 { font-size: 16px; }
 .logo-emoji img {
   all: unset;
 }
+
+.scroll-circle {
+  position: fixed;
+  right: 24px;
+  bottom: 32px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  cursor: default;
+}
+
+.scroll-circle-svg {
+  width: 32px;
+  height: 32px;
+  transform: rotate(-90deg); /* start at top */
+}
+
+.scroll-circle-bg {
+  fill: none;
+  stroke: rgba(148, 163, 184, 0.4);
+  stroke-width: 3;
+}
+
+.scroll-circle-progress {
+  fill: none;
+  stroke: #2563eb;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 113;   /* set in JS too */
+  stroke-dashoffset: 113;
+  transition: stroke-dashoffset 0.08s ease-out;
+}
