@@ -3287,3 +3287,28 @@ h6 { font-size: 16px; }
   stroke-dashoffset: 113;
   transition: stroke-dashoffset 0.08s ease-out;
 }
+
+.modal-trip-price-block {
+  margin: 16px 0 24px;
+}
+
+.modal-trip-price-main {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--c-text);
+  letter-spacing: 0.03em;
+}
+
+.modal-trip-price-main span {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--c-text-secondary);
+  margin-left: 4px;
+}
+
+.modal-trip-price-note {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--c-text-secondary);
+}
