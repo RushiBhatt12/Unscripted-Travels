@@ -1461,7 +1461,8 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   </div>
 `;
 
-
+ marker.bindPopup(popupHtml, { className: "map-popup" });
+    
   // zoom in when pin is clicked
   marker.on("click", () => {
     map.setView([loc.lat, loc.lng], 12, { animate: true }); // adjust zoom (e.g., 10–12)
