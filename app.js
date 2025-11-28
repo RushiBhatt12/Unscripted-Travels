@@ -4,55 +4,106 @@
 
 const tripsData = [
   {
-    id: 1,
-    name: 'Arunachal Valley Immersion',
-    duration: '4 Days / 3 Nights',
-    season: 'January - February',
-    price: 5725,
-    groupSize: '4-6 people',
-    image: 'https://dwq3yv87q1b43.cloudfront.net/public/blogs/fit-in/1200x675/Blog_20241109-490819301-1731139799.jpg',
-    description: 'Immerse yourself in authentic tribal culture and pristine wilderness of Arunachal Pradesh. Experience village life, forest trekking, and genuine local connections.',
-    highlights: [
-      'Wildlife sanctuary visit',
-      'Riverside bonfire evening',
-      'Village tribal workshop',
-      'Waterfall exploration',
-      'Farm-to-table meals'
-    ],
-    itinerary: [
-      {
-        day: 1,
-        title: 'Arrival & Wildlife Sanctuary',
-        description: 'Arrive at Pasighat. Explore the scenic wildlife sanctuary and enjoy a riverside bonfire under the stars.'
-      },
-      {
-        day: 2,
-        title: 'Village Immersion',
-        description: 'Experience authentic village life in Boleng. Participate in tribal culture workshops and sleep in comfortable tents.'
-      },
-      {
-        day: 3,
-        title: 'Waterfall Trek',
-        description: 'Trek to Upper Siang waterfalls. Stay in a homestay and connect with the local family.'
-      },
-      {
-        day: 4,
-        title: 'Farewell & Departure',
-        description: 'Farm breakfast in the morning and departure with unforgettable memories.'
-      }
-    ],
-    inclusions: [
-      'Transport (Bolero & 2-wheelers)',
-      'Accommodation (bamboo homestays & tents)',
-      'All meals (farm-to-table)',
-      'Expert local guides',
-      'Activities & experiences'
-    ],
-    rating: 4.8,
-    reviews: 127,
-    featured: true,
-    category: ['winter', 'budget']
+  id: 1,
+  name: "Arunachal Valley Immersion",
+  shortTitle: "Arunachal Valley Immersion Retreat",
+  tagline: "An authentic tribal homestay and nature experience.",
+  duration: "4 Days / 3 Nights",
+  season: "January – February",
+  price: 5725,
+  currency: "INR",
+  pricingNotes: "Per person, based on 4–6 guests, all-inclusive except optional extras.",
+  groupSize: "4–6 people",
+  physicalLevel: "Easygoing – short walks and gentle countryside trails.",
+  idealFor: [
+    "Small groups of friends",
+    "Couples",
+    "Slow travelers",
+    "Solo travelers seeking real connection"
+  ],
+  category: ["winter", "budget", "culture", "nature"],
+  image:
+    "https://dwq3yv87q1b43.cloudfront.net/public/blogs/fit-in/1200x675/Blog_20241109-490819301-1731139799.jpg",
+  locationSummary:
+    "Pasighat → Boleng → Rasing (Upper Siang), Arunachal Pradesh, India.",
+  description:
+    "A 4-day immersion into tribal Arunachal where you stay with local families, share their food and fireside stories, and walk through forests, riversides, and rice fields instead of tourist markets.",
+  whyChooseUs: [
+    "Travel as a guest of local families rather than a passing tourist.",
+    "Comfortably off-grid: trade traffic and screens for starry skies and birdsong.",
+    "Dedicated local guide from arrival to departure for language, access, and safety.",
+    "Every meal is farm-to-table with family recipes, wild ferns, bamboo shoots, river fish, and more.",
+    "Small batches of 4–6 guests so nothing feels crowded or commercial."
+  ],
+  highlights: [
+    "Stay in warm bamboo homestays and riverside tents hosted by local families.",
+    "Nature walk inside Daying Ering Sanctuary with migratory bird-spotting and riverside trails.",
+    "Riverside bonfires with stories, songs, and optional handcrafted tribal wine.",
+    "Hands-on village immersion in Boleng with rice paddies, bamboo artisans, and weavers.",
+    "Waterfall stops, hidden valleys, and village life in Upper Siang’s Rasing region.",
+    "Cultural craft sessions – baskets, mats, masks, or local cooking with your hosts."
+  ],
+  itinerary: [
+    {
+      day: 1,
+      title: "Welcome to the Valley – Pasighat",
+      description:
+        "Arrive in Pasighat, meet your local hosts, and drive through lush greenery to your bamboo homestay. After settling in, head with your guide to Daying Ering Sanctuary for a gentle nature walk, migratory bird-spotting, and riverside views. End the day with a farm-fresh riverside dinner cooked by local families and a campfire under the stars, with optional house-made tribal wine available."
+    },
+    {
+      day: 2,
+      title: "The Village Rhythm – Boleng",
+      description:
+        "After breakfast, take a scenic 1.5-hour Bolero Pickup drive to Boleng with pauses at panoramic viewpoints while your guide shares local stories of the hills. Spend the day walking through rice paddies, watching bamboo artisans, and joining farmers and weavers at work. In the evening, move to a riverside tent camp by the Siang River, cook and eat with your hosts around the fire, and, if you wish, taste Boleng’s famous fermented millet or rice wine."
+    },
+    {
+      day: 3,
+      title: "Upper Siang’s Heartbeat – Rasing",
+      description:
+        "Drive towards Rasing in Upper Siang, stopping at waterfalls and hidden valleys that most visitors never see. Check in at a family homestay, meet village elders, and listen to local myths and legends. Join a craft session—basket, mat, or mask—or help prepare a traditional Arunachali meal. Evenings are for bonfire gatherings, music, and immersive storytelling, with an optional tasting of local rice beer (‘apong’) for the curious."
+    },
+    {
+      day: 4,
+      title: "Goodbye, Never Farewell",
+      description:
+        "Wake up for a gentle sunrise stroll through dewy rice fields, accompanied by birdsong and morning mist. Share a final hearty breakfast with your hosts, exchange stories and hugs, and then depart by Bolero Pickup, carrying a story that belongs only to you."
+    }
+  ],
+  inclusions: [
+    "All local transport (Bolero Pickup, 2‑wheelers, drivers, and fuel).",
+    "3 nights in comfortable family homestays and tents with essential amenities.",
+    "All meals – breakfast, lunch, and dinner with farm-to-table local cuisine.",
+    "Full-time local guide for activities, safety, translation, and cultural context.",
+    "Cultural workshops, bonfires, craft demonstrations, and food sessions.",
+    "All scheduled experiences in the standard itinerary.",
+    "Unlimited drinking water and basic first-aid support."
+  ],
+  extras: [
+    "Optional tribal/local wine or rice beer (approximately ₹250–₹400 per glass or bottle).",
+    "Personal shopping from local families and artisans.",
+    "Laundry and other personal expenses.",
+    "Any additional activities requested outside the standard plan."
+  ],
+  atAGlance: {
+    whoIsThisFor:
+      "Small groups, couples, and solo travelers who value real connection over conventional tourism.",
+    physicalLevel:
+      "Comfortable for anyone able to walk short countryside trails and village paths.",
+    bestSeason:
+      "January–February, offering balanced weather, clear views, and seasonal color across the valleys.",
+    groupSize:
+      "Intimate groups of 4–6 guests per batch so experiences stay personal and unrushed."
   },
+  experienceNotes: [
+    "Your local guide is fluent in multiple tribal dialects and shares their home culture with pride.",
+    "The flow of each day can adapt to local events—if there is a spontaneous village gathering or festival, the plan can flex to include it.",
+    "Money goes directly to host families, drivers, and artisans, ensuring your trip supports the communities you meet.",
+    "Designed as a digital-light experience, encouraging presence in nature rather than on screens."
+  ],
+  rating: 4.8,
+  reviews: 127,
+  featured: true
+},
   {
     id: 2,
     name: 'Ziro Valley Culture Circuit',
@@ -673,24 +724,62 @@ function initTripFilters() {
 function openTripModal(tripId) {
   const trip = tripsData.find(t => t.id === tripId);
   if (!trip) return;
-  const modal = document.getElementById('tripModal');
-  const modalBody = document.getElementById('modalBody');
+
+  const modal = document.getElementById("tripModal");
+  const modalBody = document.getElementById("modalBody");
+
   modalBody.innerHTML = `
     <h2 class="modal-trip-title">${trip.name}</h2>
+
     <img src="${trip.image}" alt="${trip.name}" class="modal-trip-image">
-    <div class="modal-trip-meta">${trip.duration} • ${trip.season} • ${trip.groupSize}</div>
-    <div class="modal-trip-price">₹${trip.price.toLocaleString()} per person</div>
-    
+
+    <div class="modal-trip-meta">
+      <span>${trip.duration}</span>
+      <span>• ${trip.season}</span>
+      <span>• ${trip.groupSize}</span>
+      ${typeof trip.rating === "number" && typeof trip.reviews === "number"
+        ? `<span>• ★ ${trip.rating.toFixed(1)} (${trip.reviews} reviews)</span>`
+        : ""}
+    </div>
+
+    <div class="modal-trip-price-block">
+      <div class="modal-trip-price-main">
+        ₹${trip.price.toLocaleString()} <span>per person</span>
+      </div>
+      <div class="modal-trip-price-note">
+  Based on 4–6 guests, all-inclusive on-ground costs.<br>
+  <strong>Inner Line Permit (ILP), mandated by the Government of Arunachal Pradesh, is required for all visitors (approx. ₹500 per person) is <u>not included</u> in this package price.</strong>
+</div>
+
+    </div>
+
+    ${trip.tagline ? `
+    <div class="modal-trip-section">
+      <p class="modal-trip-tagline">${trip.tagline}</p>
+    </div>` : ""}
+
     <div class="modal-trip-section">
       <h3>About This Experience</h3>
-      <p style="color:var(--c-text-secondary);line-height:1.8;font-size:16px;">${trip.description}</p>
+      <p class="modal-trip-text">
+        ${trip.description}
+      </p>
     </div>
-    
+
+    ${trip.whyChooseUs ? `
+    <div class="modal-trip-section">
+      <h3>Why This Journey</h3>
+      <ul>
+        ${trip.whyChooseUs.map(point => `<li>${point}</li>`).join("")}
+      </ul>
+    </div>` : ""}
+
     <div class="modal-trip-section">
       <h3>Highlights</h3>
-      <ul>${trip.highlights.map(h => `<li>${h}</li>`).join('')}</ul>
+      <ul>
+        ${trip.highlights.map(h => `<li>${h}</li>`).join("")}
+      </ul>
     </div>
-    
+
     <div class="modal-trip-section">
       <h3>Itinerary</h3>
       ${trip.itinerary.map(item => `
@@ -699,20 +788,54 @@ function openTripModal(tripId) {
           <div class="itinerary-title">${item.title}</div>
           <div class="itinerary-description">${item.description}</div>
         </div>
-      `).join('')}
+      `).join("")}
     </div>
-    
+
     <div class="modal-trip-section">
       <h3>Inclusions</h3>
-      <ul>${trip.inclusions.map(i => `<li>${i}</li>`).join('')}</ul>
+      <ul>
+        ${trip.inclusions.map(i => `<li>${i}</li>`).join("")}
+      </ul>
     </div>
-    
-    <button class="btn btn-primary" onclick="inquireNow('${trip.name}')" style="width:100%;margin-top:24px;">Inquire Now</button>
-  `;
-  modal.classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
 
+    ${trip.extras ? `
+    <div class="modal-trip-section">
+      <h3>Not Included / Optional</h3>
+      <ul>
+        ${trip.extras.map(e => `<li>${e}</li>`).join("")}
+      </ul>
+    </div>` : ""}
+
+    ${trip.atAGlance ? `
+    <div class="modal-trip-section">
+      <h3>At a Glance</h3>
+      <ul>
+        <li><strong>Who is this for:</strong> ${trip.atAGlance.whoIsThisFor}</li>
+        <li><strong>Physical level:</strong> ${trip.atAGlance.physicalLevel}</li>
+        <li><strong>Best season:</strong> ${trip.atAGlance.bestSeason}</li>
+        <li><strong>Group size:</strong> ${trip.atAGlance.groupSize}</li>
+      </ul>
+    </div>` : ""}
+
+    ${trip.experienceNotes ? `
+    <div class="modal-trip-section">
+      <h3>Experience Notes</h3>
+      <ul>
+        ${trip.experienceNotes.map(note => `<li>${note}</li>`).join("")}
+      </ul>
+    </div>` : ""}
+
+    <button
+      class="btn btn-primary"
+      onclick="inquireNow('${trip.name}')"
+      style="width:100%;margin-top:24px;">
+      Inquire Now
+    </button>
+  `;
+
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
 function closeModal() {
   const modal = document.getElementById('tripModal');
   modal.classList.remove('active');
