@@ -1441,23 +1441,26 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   const marker = L.marker([loc.lat, loc.lng], { icon }).addTo(map);
 
   const popupHtml = `
-    <div class="map-popup">
+  <div class="map-popup-inner">
+    <div class="map-popup-copy">
+      <div class="map-popup-label">Story Stop</div>
       <div class="map-popup-title">${loc.name}</div>
       <div class="map-popup-district">${loc.district}</div>
       <div class="map-popup-story">${loc.story}</div>
       <div class="map-popup-culture">${loc.culture}</div>
+    </div>
+
+    <div class="map-popup-footer">
+      <span class="map-popup-footnote">Tap to step into this story</span>
       <a href="#"
-         class="btn btn-link"
-         style="margin-top:12px;color:#8b7355;text-decoration:underline;font-size:15px;letter-spacing:.5px;"
+         class="map-popup-cta"
          onclick="navigateToPage('experiences'); return false;">
-        Learn More
+        Open Experience
       </a>
     </div>
-  `;
+  </div>
+`;
 
-  marker.bindPopup(popupHtml, {
-    className: "leaflet-popup map-popup glass-card"
-  });
 
   // zoom in when pin is clicked
   marker.on("click", () => {
