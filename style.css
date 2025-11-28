@@ -3526,3 +3526,9 @@ h6 { font-size: 16px; }
   width: 100%;
   padding: 20px 20px 24px;
 }
+
+/* Contact subtitle under heading */
+.contact-subtitle {
+  text-align: center;
+  margin: 0 auto 24px;
+}
