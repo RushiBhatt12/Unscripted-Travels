@@ -385,13 +385,68 @@ const demoGalleryImages = [
 
 // == MAP DATA ==
 const mapLocations = [
-  { id:1, name:'Pasighat', district:'East Siang District', lat:28.0641, lng:93.8186, story:"Gateway to untouched wilderness. Where the Siang River flows through tribal lands and ancient cultures thrive beyond commercialism.", culture:"East Siang tribal heritage" },
-  { id:2, name:'Boleng', district:'East Siang', lat:28.1231, lng:93.8754, story:"A hidden village where tribal families welcome strangers like kinfolk. Experience authentic village life far from tourism.", culture:"Adivasi immersion" },
-  { id:3, name:'Rasing', district:'Upper Siang', lat:28.3642, lng:93.9845, story:"Untamed wilderness where forests embrace waterfalls and silence speaks louder than words. Real trekking, real nature.", culture:"Mountain wilderness" },
-  { id:4, name:'Yingkiong', district:'Upper Siang', lat:28.4521, lng:93.9123, story:"Where mountains meet sky. A remote corner offering spiritual elevation and authentic cultural connections.", culture:"Himalayan spirituality" },
-  { id:5, name:'Ziro Valley', district:'Lower Subansiri', lat:27.8123, lng:93.5642, story:"The land of the Apatani tribe. Ancient rice paddies, bamboo craft, and a culture that predates modern tourism.", culture:"Apatani traditions" },
-  { id:6, name:'Tawang', district:'Tawang', lat:27.5895, lng:91.8621, story:"Sacred Himalayan heights. Ancient monasteries, spiritual journeys, and mountains that touch the divine.", culture:"Buddhist heritage" },
+  {
+    id: 1,
+    name: "Pasighat",
+    district: "East Siang",
+    lat: 28.0663,
+    lng: 95.3268,
+    story:
+      "Gateway to untouched wilderness where the Siang River carves through lush tribal lands and old river stories still travel by word of mouth.",
+    culture: "Adi tribal heritage along the Siang River."
+  },
+  {
+    id: 2,
+    name: "Boleng",
+    district: "Siang",
+    lat: 28.3237,
+    lng: 94.9521,
+    story:
+      "A quiet valley town ringed by rice fields and forested slopes, where village life still moves to the rhythm of farming and festivals.",
+    culture: "Rural Siang village communities and everyday tribal life."
+  },
+   {
+    id: 3,
+    name: "Rasing (Upper Siang)",
+    district: "Upper Siang",
+    lat: 28.29775325338534,
+    lng: 94.96680566974318,
+    story:
+      "High in Upper Siang, Rasing opens into deep forest trails, waterfalls, and remote hamlets that rarely see outside visitors.",
+    culture: "Mountain wilderness and remote village traditions."
+  },
+  {
+    id: 4,
+    name: "Yingkiong",
+    district: "Upper Siang",
+    lat: 28.6104,
+    lng: 95.0475,
+    story:
+      "Perched above the Siang, Yingkiong looks out over misty ridgelines, hanging bridges, and rivers that have shaped local folklore for generations.",
+    culture: "Himalayan hill culture and Siang valley traditions."
+  },
+  {
+    id: 5,
+    name: "Ziro Valley",
+    district: "Lower Subansiri",
+    lat: 27.59497,
+    lng: 93.83854,
+    story:
+      "A wide, bowl-shaped valley of rice paddies and pine forests where the Apatani people have farmed, crafted, and sung their stories for centuries.",
+    culture: "Apatani indigenous culture, terrace farming, and bamboo craft."
+  },
+  {
+    id: 6,
+    name: "Tawang",
+    district: "Tawang",
+    lat: 27.5861,
+    lng: 91.8594,
+    story:
+      "A high-altitude world of monasteries, prayer flags, and snow-lined passes, where spirituality and mountain silence blend into one landscape.",
+    culture: "Tibetan Buddhist heritage and high Himalayan monastery life."
+  }
 ];
+
 
 let currentPage = 'home';
 
@@ -1340,32 +1395,7 @@ function renderGalleryGrid() {
 // ============================================
 // STORY MAP PAGE RENDER
 // ============================================
-function renderStoryMap() {
-  const mapDiv = document.getElementById('interactiveMap');
-  if (!mapDiv) return;
-  // Clear
-  mapDiv.innerHTML = '';
-  // Init Leaflet
-  const map = L.map(mapDiv, { scrollWheelZoom:true }).setView([28.2, 93.6], 7);
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: 'Map &copy; OpenStreetMap' }).addTo(map);
-  // Nature-inspired minimalist pin
-  const pinSvg = `<svg viewBox='0 0 32 32' width='32' height='32' fill='none'><ellipse cx='12' cy='18' rx='8' ry='13' fill='#6b8e7f' opacity='0.7'/><circle cx='12' cy='18' r='6' fill='#8b7355' opacity='0.86'/></svg>`;
-  mapLocations.forEach(loc => {
-    const icon = L.divIcon({ className:'', html:pinSvg, iconAnchor:[12,18], popupAnchor:[0,-14] });
-    const popupHtml = `
-      <div class="map-popup">
-        <div class="map-popup-title">${loc.name}</div>
-        <div class="map-popup-district">${loc.district}</div>
-        <div class="map-popup-story">${loc.story}</div>
-        <div class="map-popup-culture">${loc.culture}</div>
-        <a href="#" class="btn btn-link" style="margin-top:12px;color:#8b7355;text-decoration:underline;font-size:15px;letter-spacing:.5px;" onclick="navigateToPage('experiences')">Learn More</a>
-      </div>
-    `;
-    const marker = L.marker([loc.lat, loc.lng], { icon });
-    marker.addTo(map);
-    marker.bindPopup(popupHtml, { className:"leaflet-popup map-popup glass-card" });
-  });
-}
+mapLocations.forEach
 
 // ============================================
 // PHILOSOPHY PAGE RENDER
