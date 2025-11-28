@@ -1395,8 +1395,77 @@ function renderGalleryGrid() {
 // ============================================
 // STORY MAP PAGE RENDER
 // ============================================
-mapLocations.forEach
+function renderStoryMap() {
+  const mapDiv = document.getElementById("interactiveMap");
+  if (!mapDiv) return;
 
+  // Clear
+  mapDiv.innerHTML = "";
+
+  // Init Leaflet
+const map = L.map(mapDiv, { scrollWheelZoom: true }).setView([28.2, 94.5], 7);
+
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 19,
+  attribution: "&copy; OpenStreetMap contributors"
+}).addTo(map);
+
+  // Minimal pin icon (sharp pin, not round blob)
+  const pinSvg = `
+    <svg viewBox="0 0 24 36" width="24" height="36" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="pinGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#e03a24ff"/>
+          <stop offset="100%" stop-color="#6b8e7f"/>
+        </linearGradient>
+      </defs>
+      <path
+        d="M12 0C7.6 0 4 3.6 4 8c0 6.2 8 14.5 8 14.5S20 14.2 20 8c0-4.4-3.6-8-8-8z"
+        fill="url(#pinGrad)"
+        stroke="rgba(0,0,0,0.18)"
+        stroke-width="0.5"
+      />
+      ircle cx="12" cy="8" r="3.3" fill="#f5f1e8"/>
+    </svg>
+  `;
+
+  mapLocations.forEach(loc => {
+  const icon = L.divIcon({
+    className: "map-pin-icon",
+    html: pinSvg,
+    iconSize: [24, 36],
+    iconAnchor: [12, 36],
+    popupAnchor: [0, -32]
+  });
+
+  const marker = L.marker([loc.lat, loc.lng], { icon }).addTo(map);
+
+  const popupHtml = `
+    <div class="map-popup">
+      <div class="map-popup-title">${loc.name}</div>
+      <div class="map-popup-district">${loc.district}</div>
+      <div class="map-popup-story">${loc.story}</div>
+      <div class="map-popup-culture">${loc.culture}</div>
+      <a href="#"
+         class="btn btn-link"
+         style="margin-top:12px;color:#8b7355;text-decoration:underline;font-size:15px;letter-spacing:.5px;"
+         onclick="navigateToPage('experiences'); return false;">
+        Learn More
+      </a>
+    </div>
+  `;
+
+  marker.bindPopup(popupHtml, {
+    className: "leaflet-popup map-popup glass-card"
+  });
+
+  // zoom in when pin is clicked
+  marker.on("click", () => {
+    map.setView([loc.lat, loc.lng], 12, { animate: true }); // adjust zoom (e.g., 10–12)
+  });
+});
+
+}
 // ============================================
 // PHILOSOPHY PAGE RENDER
 // ============================================
