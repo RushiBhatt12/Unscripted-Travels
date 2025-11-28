@@ -3453,3 +3453,76 @@ h6 { font-size: 16px; }
   line-height: 1.7;
   color: var(--c-text-secondary);
 }
+
+@media (max-width: 640px) {
+  .trip-modal-inner,
+  .modal-trip-card {
+    width: 100%;
+    max-width: none;
+    border-radius: 18px 18px 0 0;
+    margin: 0;
+    bottom: 0;
+  }
+
+  #tripModal.active {
+    align-items: flex-end; /* bottom sheet feel */
+  }
+
+  .modal-trip-title {
+    font-size: 24px;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .modal-trip-image {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin: 12px 0 16px;
+  }
+
+  .modal-trip-meta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 6px;
+    column-gap: 12px;
+    font-size: 13px;
+  }
+
+  .modal-trip-price-main {
+    font-size: 22px;
+  }
+
+  .modal-trip-section {
+    padding-inline: 2px;
+  }
+
+  .modal-close-btn {
+    width: 32px;
+    height: 32px;
+    top: 14px;
+    right: 14px;
+  }
+}
+
+#tripModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
+
+#tripModal.active {
+  display: flex;
+}
+
+.trip-modal-inner {
+  background: rgba(250, 247, 242, 0.98);
+  border-radius: 24px;
+  max-width: 480px;
+  width: 100%;
+  padding: 20px 20px 24px;
+}
