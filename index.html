@@ -257,27 +257,297 @@
   <template id="contactPage">
 
   <section class="page-section contact-page">
-    <div class="container-narrow">
-      <p class="section-label">READY TO BEGIN</p>
-      <h2 class="section-title">Get in Touch</h2>
-      <p class="contact-description">Reach out to customize your journey.</p>
-      
-      <div class="contact-minimal">
-        <div class="contact-link">
-          <span class="contact-link-label">Phone</span>
-          <a href="tel:6358006660" target="_blank">6358006660</a>
-        </div>
-        <div class="contact-link">
-          <span class="contact-link-label">Email</span>
-          <a href="mailto:rushi.bhattt@gmail.com" target="_blank">rushi.bhattt@gmail.com</a>
-        </div>
-        <div class="contact-note">
-          <span class="contact-link-label">Instagram</span>
-          <span class="coming-soon">Coming soon</span>
-        </div>
-      </div>
+     <div class="container-narrow">
+    <p class="section-label">Ready to Begin</p>
+    <h2 class="section-title">Get in Touch</h2>
+    <p class="contact-subtitle">Cut through the bamboo to reveal our contact.</p>
+
+    <!-- Bamboo Cutting Mini-Game (Self-Contained) -->
+<!-- Bamboo Cutting Mini-Game (Self-Contained) -->
+<!-- Bamboo Cutting Mini-Game (Self-Contained) -->
+<div id="bambooGameContainer" style="max-width: 600px; margin: 40px auto 0; min-height: 300px; position: relative;">
+  
+  <style>
+    #bambooGameContainer .bamboo-stalks {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 8px;
+      margin: 50px auto;
+      min-height: 320px;
+      flex-wrap: wrap;
+    }
+
+    #bambooGameContainer .bamboo-stalk {
+      width: 52px;
+      background: linear-gradient(90deg,
+        #1a4d1f 0%,
+        #2d7a3a 15%,
+        #3d9d50 40%,
+        #4bb566 50%,
+        #3d9d50 60%,
+        #2d7a3a 85%,
+        #1a4d1f 100%);
+      border-radius: 26px;
+      position: relative;
+      cursor: crosshair;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      box-shadow:
+        inset -4px 0 12px rgba(0, 0, 0, 0.35),
+        inset 4px 0 12px rgba(255, 255, 255, 0.15),
+        0 16px 32px rgba(0, 0, 0, 0.28);
+      transition: all 0.2s ease;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+    }
+
+    #bambooGameContainer .bamboo-stalk::before {
+      content: '';
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      height: 4px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 2px;
+    }
+
+    #bambooGameContainer .bamboo-stalk::after {
+      content: '';
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      height: 4px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 2px;
+    }
+
+    #bambooGameContainer .bamboo-stalk.cut {
+      animation: bambooFall 0.9s ease-out forwards;
+    }
+
+    @keyframes bambooFall {
+      0% {
+        transform: translateY(0) rotateZ(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(160px) rotateZ(28deg);
+        opacity: 0;
+      }
+    }
+
+    #bambooGameContainer .cut-count {
+      font-size: 20px;
+      font-weight: 900;
+      color: #fff;
+      z-index: 2;
+      text-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.6),
+        0 -1px 0 rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.25);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #bambooGameContainer .slice-effect {
+      position: fixed;
+      pointer-events: none;
+      font-size: 24px;
+      font-weight: bold;
+      z-index: 1000;
+      animation: sliceSlash 0.6s ease-out forwards;
+    }
+
+    @keyframes sliceSlash {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(20px, -30px) scale(0.5);
+      }
+    }
+
+    #bambooGameContainer .contact-card-reveal {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.82);
+      opacity: 0;
+      pointer-events: none;
+      padding: 28px 26px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.95);
+      z-index: 10;
+      transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+      min-width: 310px;
+      text-align: center;
+    }
+
+    #bambooGameContainer .contact-card-reveal.revealed {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    #bambooGameContainer .contact-row {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-bottom: 18px;
+    }
+
+    #bambooGameContainer .contact-row:last-child { margin-bottom: 0; }
+
+    #bambooGameContainer .contact-label {
+      font-size: 9px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.62);
+      font-weight: 700;
+    }
+
+    #bambooGameContainer .contact-link {
+      font-size: 13px;
+      color: #1a1a1a;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    #bambooGameContainer .contact-link--accent {
+      color: #0066ff;
+      font-weight: 500;
+    }
+
+    #bambooGameContainer .contact-link:hover {
+      border-bottom-color: rgba(45, 92, 50, 0.7);
+    }
+
+    #bambooGameContainer .completion-msg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 5;
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: #1a1a1a;
+      transition: opacity 0.6s ease;
+    }
+
+    #bambooGameContainer .completion-msg.show {
+      opacity: 1;
+    }
+
+    /* Katana cursor */
+    .contact-page.knife-mode {
+      cursor: url('https://freesvg.org/img/DTRave-Katana-Sword.png') 12 0, auto;
+    }
+  </style>
+
+  <div class="bamboo-stalks" id="bambooStalks"></div>
+  
+  <div class="contact-card-reveal" id="contactCardReveal">
+    <div class="contact-row">
+      <span class="contact-label">Phone</span>
+      <a class="contact-link" href="tel:6358006660">6358006660</a>
     </div>
-  </section>
+    <div class="contact-row">
+      <span class="contact-label">Email</span>
+      <a class="contact-link" href="mailto:unscriptedtravels@gmail.com">unscriptedtravels@gmail.com</a>
+    </div>
+    <div class="contact-row">
+      <span class="contact-label">Instagram</span>
+      <a class="contact-link contact-link--accent" href="https://www.instagram.com/unscriptedtravels_/" target="_blank" rel="noopener">@unscriptedtravels_</a>
+    </div>
+  </div>
+
+  <div class="completion-msg" id="bambooComplete">Well done! 🎋</div>
+
+  <script>
+    (function() {
+      const container = document.getElementById("bambooGameContainer");
+      const stalksDiv = document.getElementById("bambooStalks");
+      const contactCard = document.getElementById("contactCardReveal");
+      const completeMsg = document.getElementById("bambooComplete");
+      const contactSection = container.closest(".contact-page");
+
+      if (contactSection) contactSection.classList.add("knife-mode");
+
+      const bambooCount = 10;
+      const cutsNeeded = 3;
+      let stalksRemaining = bambooCount;
+      let mouseIsMoving = false;
+
+      for (let i = 0; i < bambooCount; i++) {
+        const stalk = document.createElement("div");
+        stalk.className = "bamboo-stalk";
+        stalk.dataset.cuts = 0;
+        
+        // Random height between 160px and 260px
+        const randomHeight = 160 + Math.random() * 100;
+        stalk.style.height = randomHeight + "px";
+        
+        stalk.innerHTML = `<span class="cut-count">${cutsNeeded}</span>`;
+
+        stalk.addEventListener("mousemove", function(e) {
+          if (this.classList.contains("cut")) return;
+
+          const cuts = parseInt(this.dataset.cuts) + 1;
+          this.dataset.cuts = cuts;
+          this.querySelector(".cut-count").textContent = cutsNeeded - cuts;
+
+          // Slash effect
+          const slashDiv = document.createElement("div");
+          slashDiv.className = "slice-effect";
+          slashDiv.textContent = "⚔";
+          slashDiv.style.left = e.clientX + "px";
+          slashDiv.style.top = e.clientY + "px";
+          container.appendChild(slashDiv);
+
+          setTimeout(() => slashDiv.remove(), 600);
+
+          if (navigator.vibrate) navigator.vibrate(30);
+
+          if (cuts >= cutsNeeded) {
+            this.classList.add("cut");
+            stalksRemaining--;
+
+            if (stalksRemaining === 0) {
+              setTimeout(() => {
+                contactCard.classList.add("revealed");
+                completeMsg.classList.add("show");
+
+                if (contactSection) contactSection.classList.remove("knife-mode");
+              }, 200);
+            }
+          }
+        });
+
+        stalksDiv.appendChild(stalk);
+      }
+    })();
+  </script>
+</div>
+
+
+
+  </div>
+</section>
+
     <section class="faq-section">
         <p class="section-label">Everything you need to know about traveling with us</p>
         <h2 class="section-title">Frequently Asked Questions</h2>
