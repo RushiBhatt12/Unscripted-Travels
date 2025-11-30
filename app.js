@@ -1553,3 +1553,4 @@ function updateCircularScroll() {
 
 window.addEventListener("scroll", updateCircularScroll);
 window.addEventListener("load", updateCircularScroll);
+
