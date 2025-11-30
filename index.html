@@ -134,26 +134,110 @@
     </div>
   </section>
 
-  <!-- Trips Section -->
-  <section class="section trips-section" id="trips">
-    <div class="container-narrow">
-      <p class="section-label">EXPERIENCES</p>
-      <h2 class="section-title">Our Journeys</h2>
-      
-      <div class="trip-grid" id="tripGrid">
-        <!-- Trip cards will be dynamically inserted here -->
-      </div>
-    </div>
-  </section>
+ <!-- Apple-Style Glassmorphic Impact Section -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <!-- Stats Section -->
-  <section class="section stats-section">
-    <div class="container-narrow">
-      <div class="stats-minimal" id="statsMinimal">
-        <!-- Stats will be inserted here -->
-      </div>
+<section class="impact-section">
+  <div class="impact-container">
+    
+    <div class="impact-card">
+      <img src="https://raw.githubusercontent.com/RushiBhatt12/ytdownload/refs/heads/main/033-Backpacker.png" class="impact-icon" />
+      <div class="impact-stat">2,847</div>
+      <div class="impact-label">Travelers Served</div>
     </div>
-  </section>
+
+    <div class="impact-card">
+      <img src="https://raw.githubusercontent.com/RushiBhatt12/ytdownload/refs/heads/main/007-family%20trip.png" class="impact-icon" />
+      <div class="impact-stat">34</div>
+      <div class="impact-label">Communities Supported</div>
+    </div>
+
+    <div class="impact-card">
+      <img src="https://raw.githubusercontent.com/RushiBhatt12/ytdownload/refs/heads/main/018-travel%20agent.png" class="impact-icon" />
+      <div class="impact-stat">5+</div>
+      <div class="impact-label">Years of Excellence</div>
+    </div>
+
+    <div class="impact-card">
+      <img src="https://raw.githubusercontent.com/RushiBhatt12/ytdownload/refs/heads/main/041-sunrise.png" class="impact-icon" />
+      <div class="impact-stat">300+</div>
+      <div class="impact-label">Unscripted Moments</div>
+    </div>
+
+  </div>
+</section>
+
+
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f0f2f517;
+    margin: 0;
+  }
+
+  .impact-section {
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(20px);
+  }
+
+  .impact-container {
+    display: flex;
+    gap: 40px;
+    padding: 30px 50px;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0);
+  }
+
+  .impact-card {
+    text-align: center;
+    padding: 20px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .impact-icon {
+    width: 50px;
+    margin: 0 auto 10px;
+    opacity: 0.8;
+  }
+
+  .impact-stat {
+    font-size: 28px;
+    font-weight: 600;
+    color: #111;
+  }
+
+  .impact-label {
+    font-size: 14px;
+    color: #444;
+    letter-spacing: 0.5px;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .impact-container {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .impact-card {
+      width: 45%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .impact-card {
+      width: 100%;
+    }
+  }
+</style>
+
   </template>
 
   <template id="experiencesPage">
@@ -531,7 +615,7 @@
     </div>
   </div>
 
-  <div class="completion-msg" id="bambooComplete">Well done! 🎋</div>
+  <div class="completion-msg" id="bambooComplete">Well done! </div>
 
   <script>
     (function() {
@@ -554,7 +638,7 @@
         bambooCount = 10;
       }
 
-      const cutsNeeded = 3;
+      const cutsNeeded = 1;
       let stalksRemaining = bambooCount;
 
       for (let i = 0; i < bambooCount; i++) {
@@ -576,7 +660,7 @@
 
           const slashDiv = document.createElement("div");
           slashDiv.className = "slice-effect";
-          slashDiv.textContent = "⚔";
+          slashDiv.textContent = "🔪";
           slashDiv.style.left = e.clientX + "px";
           slashDiv.style.top = e.clientY + "px";
           container.appendChild(slashDiv);
@@ -749,113 +833,6 @@
 
  <script src="app.js"></script>
 
-<script>
-window.addEventListener('DOMContentLoaded', function () {
-  const container = document.getElementById('liquidGlass');
-  if (!container) return;
-
-  const blobCount = 7;          // number of particles
-  const blobs = [];
-  const rect = container.getBoundingClientRect();
-
-  let mouseX = rect.left + rect.width / 2;
-  let mouseY = rect.top + rect.height / 2;
-
-  // Spawn blobs
-  for (let i = 0; i < blobCount; i++) {
-    const el = document.createElement('div');
-    el.className = 'liquid-blob';
-    container.appendChild(el);
-
-    const x = rect.left + rect.width * (0.2 + 0.6 * Math.random());
-    const y = rect.top + rect.height * (0.25 + 0.5 * Math.random());
-
-    blobs.push({
-      el,
-      x,
-      y,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-      scale: 1
-    });
-  }
-
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  function step() {
-    // simple fake physics
-    const repelRadius = 220;
-    const attractRadius = 260;
-    const repelStrength = 2800;
-    const attractStrength = 14;
-    const damping = 0.92;
-
-    for (let i = 0; i < blobs.length; i++) {
-      const b = blobs[i];
-
-      // Cursor repel
-      let dx = b.x - mouseX;
-      let dy = b.y - mouseY;
-      let dist = Math.hypot(dx, dy) || 1;
-
-      if (dist < repelRadius) {
-        const force = (1 - dist / repelRadius) * repelStrength;
-        b.vx += (dx / dist) * force * 0.0005;
-        b.vy += (dy / dist) * force * 0.0005;
-      }
-
-      // Blob–blob attraction (so they clump / merge)
-      for (let j = 0; j < blobs.length; j++) {
-        if (i === j) continue;
-        const b2 = blobs[j];
-        const ddx = b2.x - b.x;
-        const ddy = b2.y - b.y;
-        const d2 = Math.hypot(ddx, ddy) || 1;
-
-        if (d2 < attractRadius) {
-          const f = (1 - d2 / attractRadius) * attractStrength;
-          b.vx += (ddx / d2) * f * 0.02;
-          b.vy += (ddy / d2) * f * 0.02;
-        }
-      }
-
-      // Integrate velocity
-      b.vx *= damping;
-      b.vy *= damping;
-
-      b.x += b.vx;
-      b.y += b.vy;
-
-      // Keep within hero bounds
-      const padding = 80;
-      b.x = Math.max(rect.left + padding, Math.min(rect.right - padding, b.x));
-      b.y = Math.max(rect.top + padding, Math.min(rect.bottom - padding, b.y));
-
-      // Scale / shape based on speed (feels liquid)
-      const speed = Math.hypot(b.vx, b.vy);
-      const targetScale = 1 + Math.min(speed * 25, 0.4);
-      b.scale += (targetScale - b.scale) * 0.2;
-
-      if (speed > 0.4) {
-        b.el.style.borderRadius = '65% 45% 60% 40% / 55% 60% 45% 45%';
-      } else {
-        b.el.style.borderRadius = '50%';
-      }
-
-      const localX = b.x - rect.left - b.el.offsetWidth / 2;
-      const localY = b.y - rect.top - b.el.offsetHeight / 2;
-      b.el.style.transform = `translate(${localX}px, ${localY}px) scale(${b.scale})`;
-    }
-
-    requestAnimationFrame(step);
-  }
-
-  step();
-});
-</script>
 
 
 </body>
