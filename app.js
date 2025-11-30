@@ -1303,6 +1303,11 @@ function navigateToPage(page) {
   currentPage = page;
   renderPage(page);
   updateActiveNavLinkPage(page);
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+  });
 }
 
 function updateActiveNavLinkPage(page) {
