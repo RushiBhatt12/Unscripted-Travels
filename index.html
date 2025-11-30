@@ -68,20 +68,52 @@
 
   <!-- Page Templates -->
   <template id="homePage">
-  <section class="hero" id="home">
-    <div class="hero-parallax"></div>
-    <canvas id="heroCanvas" class="hero-canvas"></canvas>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1 class="hero-title">Because Experiences<br>Don't Come in Packages.</h1>
-      <p class="hero-subtitle">Unscripted journeys across untouched India.</p>
+  <section class="hero hero--minimal" id="home">
+  <div class="hero-bg"></div>
+
+  <div class="hero-content hero-content--split">
+    <div class="hero-copy">
+      <p class="hero-kicker">Unscripted Travels</p>
+      <h1 class="hero-title">
+        Journeys that<br>
+        Feel Like Stories.
+      </h1>
+      <p class="hero-subtitle">
+        Slow, cinematic routes across untouched India, planned only as much as they need to be.
+      </p>
       <div class="hero-cta">
-        <button class="btn btn-primary" onclick="navigateToPage('experiences')">Explore Real Journeys</button>
-        <button class="btn btn-secondary" onclick="navigateToPage('storymap')">Begin Your Story</button>
+  <button class="btn btn-primary" onclick="navigateToPage('experiences')">
+    Explore Journeys
+  </button>
+  <button class="btn btn-secondary" onclick="navigateToPage('storymap')">
+    View Story Map
+  </button>
+</div>
+
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-card-tag">Next Departure</div>
+      <div class="hero-card-main">
+        <div>
+          <h3>Arunachal Valley Immersion Retreat</h3>
+          <p>4 days • small group </p>
+        </div>
+        <button class="hero-card-cta" onclick="navigateToPage('contact')">
+  Book Now
+</button>
+      </div>
+      <div class="hero-card-meta">
+        <span>Spots left: 4</span>
+        <span>Difficulty: Easy–Moderate</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
+
+
+  
   <!-- Featured Trip Section -->
   <section class="section featured-section" id="featured">
     <div class="container-narrow">
@@ -129,7 +161,7 @@
     <div class="container">
       <div class="page-header">
         <h1 class="page-title">Our Experiences</h1>
-        <p class="page-subtitle">Authentic journeys through North-East India</p>
+        <p class="page-subtitle">Authentic journeys through Arunachal Pradesh</p>
       </div>
       <div class="trip-grid" id="experiencesTripGrid">
         <!-- Trips will be dynamically inserted -->
@@ -492,7 +524,7 @@
   <div class="contact-card-reveal" id="contactCardReveal">
     <div class="contact-content">
       <a class="contact-minimal" href="tel:6358006660">6358006660</a>
-      <a class="contact-minimal" href="mailto:unscriptedtravels@gmail.com">unscriptedtravelss@gmail.com</a>
+      <a class="contact-minimal" href="mailto:unscriptedtravels@gmail.com">unscriptedtravels@gmail.com</a>
       <a class="contact-minimal contact-minimal--accent" href="https://www.instagram.com/unscriptedtravels_/" target="_blank" rel="noopener">
         @unscriptedtravels_
       </a>
@@ -714,5 +746,117 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="app.js"></script>
+
+ <script src="app.js"></script>
+
+<script>
+window.addEventListener('DOMContentLoaded', function () {
+  const container = document.getElementById('liquidGlass');
+  if (!container) return;
+
+  const blobCount = 7;          // number of particles
+  const blobs = [];
+  const rect = container.getBoundingClientRect();
+
+  let mouseX = rect.left + rect.width / 2;
+  let mouseY = rect.top + rect.height / 2;
+
+  // Spawn blobs
+  for (let i = 0; i < blobCount; i++) {
+    const el = document.createElement('div');
+    el.className = 'liquid-blob';
+    container.appendChild(el);
+
+    const x = rect.left + rect.width * (0.2 + 0.6 * Math.random());
+    const y = rect.top + rect.height * (0.25 + 0.5 * Math.random());
+
+    blobs.push({
+      el,
+      x,
+      y,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      scale: 1
+    });
+  }
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function step() {
+    // simple fake physics
+    const repelRadius = 220;
+    const attractRadius = 260;
+    const repelStrength = 2800;
+    const attractStrength = 14;
+    const damping = 0.92;
+
+    for (let i = 0; i < blobs.length; i++) {
+      const b = blobs[i];
+
+      // Cursor repel
+      let dx = b.x - mouseX;
+      let dy = b.y - mouseY;
+      let dist = Math.hypot(dx, dy) || 1;
+
+      if (dist < repelRadius) {
+        const force = (1 - dist / repelRadius) * repelStrength;
+        b.vx += (dx / dist) * force * 0.0005;
+        b.vy += (dy / dist) * force * 0.0005;
+      }
+
+      // Blob–blob attraction (so they clump / merge)
+      for (let j = 0; j < blobs.length; j++) {
+        if (i === j) continue;
+        const b2 = blobs[j];
+        const ddx = b2.x - b.x;
+        const ddy = b2.y - b.y;
+        const d2 = Math.hypot(ddx, ddy) || 1;
+
+        if (d2 < attractRadius) {
+          const f = (1 - d2 / attractRadius) * attractStrength;
+          b.vx += (ddx / d2) * f * 0.02;
+          b.vy += (ddy / d2) * f * 0.02;
+        }
+      }
+
+      // Integrate velocity
+      b.vx *= damping;
+      b.vy *= damping;
+
+      b.x += b.vx;
+      b.y += b.vy;
+
+      // Keep within hero bounds
+      const padding = 80;
+      b.x = Math.max(rect.left + padding, Math.min(rect.right - padding, b.x));
+      b.y = Math.max(rect.top + padding, Math.min(rect.bottom - padding, b.y));
+
+      // Scale / shape based on speed (feels liquid)
+      const speed = Math.hypot(b.vx, b.vy);
+      const targetScale = 1 + Math.min(speed * 25, 0.4);
+      b.scale += (targetScale - b.scale) * 0.2;
+
+      if (speed > 0.4) {
+        b.el.style.borderRadius = '65% 45% 60% 40% / 55% 60% 45% 45%';
+      } else {
+        b.el.style.borderRadius = '50%';
+      }
+
+      const localX = b.x - rect.left - b.el.offsetWidth / 2;
+      const localY = b.y - rect.top - b.el.offsetHeight / 2;
+      b.el.style.transform = `translate(${localX}px, ${localY}px) scale(${b.scale})`;
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  step();
+});
+</script>
+
+
 </body>
 </html>
