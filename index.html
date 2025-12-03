@@ -1,839 +1,1247 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unscripted Travels </title>
-  <meta name="description" content="Authentic travel experiences in Arunachal Pradesh. Small groups, real connections, immersive adventures.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="favicon.png">
-</head>
-<body>
-  <div class="scroll-circle">
-  <svg class="scroll-circle-svg" viewBox="0 0 40 40">
-    <circle class="scroll-circle-bg" cx="20" cy="20" r="18" />
-    <circle class="scroll-circle-progress" cx="20" cy="20" r="18" />
-  </svg>
-</div>
-  <!-- Header -->
-  <header class="header" id="header">
-    <div class="header-container">
-      <div class="logo">
-  <div class="logo-placeholder">
-    <img src="logo.png" alt="Unscripted Travels logo" class="logo-img">
-  </div>
-  <span class="logo-text"> </span>
-</div>
-
-      
-      <nav class="nav" id="nav">
-        <a href="#" class="nav-link active" data-page="home">Home</a>
-        <a href="#" class="nav-link" data-page="storymap">Story Map</a>
-        <a href="#" class="nav-link" data-page="experiences">Experiences</a>
-        <a href="#" class="nav-link" data-page="gallery">Gallery</a>
-        <a href="#" class="nav-link" data-page="philosophy">Philosophy</a>
-        <a href="#" class="nav-link" data-page="contact">Contact</a>
-      </nav>
-
-      <div class="header-actions">
-        <button class="hamburger" id="hamburger" aria-label="Menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <nav class="mobile-nav">
-      <a href="#" class="mobile-nav-link" data-page="home">Home</a>
-      <a href="#" class="mobile-nav-link" data-page="storymap">Story Map</a>
-      <a href="#" class="mobile-nav-link" data-page="experiences">Experiences</a>
-      <a href="#" class="mobile-nav-link" data-page="gallery">Gallery</a>
-      <a href="#" class="mobile-nav-link" data-page="philosophy">Philosophy</a>
-      <a href="#" class="mobile-nav-link" data-page="contact">Contact</a>
-    </nav>
-  </div>
-
-  <!-- Main Content Area -->
-  <main class="main-content" id="mainContent">
-    <!-- Pages will be dynamically loaded here -->
-  </main>
-
-  <!-- Page Templates -->
-  <template id="homePage">
-  <section class="hero hero--minimal" id="home">
-  <div class="hero-bg"></div>
-
-  <div class="hero-content hero-content--split">
-    <div class="hero-copy">
-      <p class="hero-kicker">Unscripted Travels</p>
-      <h1 class="hero-title">
-        Journeys that<br>
-        Feel Like Stories.
-      </h1>
-      <p class="hero-subtitle">
-        Slow, cinematic routes across untouched India, planned only as much as they need to be.
-      </p>
-      <div class="hero-cta">
-  <button class="btn btn-primary" onclick="navigateToPage('experiences')">
-    Explore Journeys
-  </button>
-  <button class="btn btn-secondary" onclick="navigateToPage('storymap')">
-    View Story Map
-  </button>
-</div>
-
-    </div>
-
-    <div class="hero-card">
-      <div class="hero-card-tag">Next Departure</div>
-      <div class="hero-card-main">
-        <div>
-          <h3>Arunachal Valley Immersion Retreat</h3>
-          <p>4 days • small group </p>
-        </div>
-        <button class="hero-card-cta" onclick="navigateToPage('contact')">
-  Book Now
-</button>
-      </div>
-      <div class="hero-card-meta">
-        <span>Spots left: 5</span>
-        <span>Difficulty: Easy–Moderate</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-  
-  <!-- Featured Trip Section -->
-  <section class="section featured-section" id="featured">
-    <div class="container-narrow">
-      <div class="featured-trip" id="featuredTrip">
-        <!-- Featured trip will be inserted here -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Philosophy Section -->
-  <section class="section philosophy-section" id="philosophy">
-    <div class="container-narrow">
-      <p class="section-label">PHILOSOPHY</p>
-      <h2 class="section-title">Experiences Beyond Packages</h2>
-      <div class="philosophy-content">
-        <p>We believe travel should be about authentic connections, not commercial transactions. Small groups of 4-6 people, expert local guides, and direct support to communities. Digital detox through natural immersion.</p>
-      </div>
-    </div>
-  </section>
-
- <!-- Apple-Style Glassmorphic Impact Section -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-<section class="impact-section">
-  <div class="impact-container">
     
-    <div class="impact-card">
-      <img src="https://raw.githubusercontent.com/RushiBhatt12/ytdownload/refs/heads/main/033-Backpacker.png" class="impact-icon" />
-      <div class="impact-stat">2,847</div>
-      <div class="impact-label">Travelers Served</div>
-    </div>
+    <!-- Character Encoding -->
+	<meta charset="UTF-8">
 
-    <div class="impact-card">
-      <img src="https://raw.githubusercontent.com/RushiBhatt12/ytdownload/refs/heads/main/007-family%20trip.png" class="impact-icon" />
-      <div class="impact-stat">34</div>
-      <div class="impact-label">Communities Supported</div>
-    </div>
+	<!-- Responsive Design -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="impact-card">
-      <img src="https://raw.githubusercontent.com/RushiBhatt12/ytdownload/refs/heads/main/018-travel%20agent.png" class="impact-icon" />
-      <div class="impact-stat">5+</div>
-      <div class="impact-label">Years of Excellence</div>
-    </div>
+	<!-- Title -->
+	<title>Unscripted Travels</title>
 
-    <div class="impact-card">
-      <img src="https://raw.githubusercontent.com/RushiBhatt12/ytdownload/refs/heads/main/041-sunrise.png" class="impact-icon" />
-      <div class="impact-stat">300+</div>
-      <div class="impact-label">Unscripted Moments</div>
-    </div>
+    <meta name="title" content="Unscripted Travels – Authentic Small-Batch Journeys">
+    <meta name="description" content="Unscripted Travels curates small-batch journeys (4–6 people),focused on authentic connections, community-first travel, and digital detox in nature.">
+    <meta name="keywords" content="Unscripted Travels, small group trips India, Arunachal Pradesh tours, authentic travel experiences, community based tourism, digital detox travel, cultural immersion, local homestays, slow travel India">
+    <meta name="author" content="Rushi bhatt">
+    <meta name="robots" content="index, follow">
 
-  </div>
-</section>
+    <!-- CANONICAL URL -->
+    <link rel="canonical" href="https://travlla.Unscripted Travels.com/tailwind/demo/index.html">
 
+    <!-- FAVICONS ICON -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- IE Compatibility -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<style>
-  body {
-    font-family: 'Inter', sans-serif;
-    background: #f0f2f517;
-    margin: 0;
-  }
+    <meta name="format-detection" content="telephone=no">
+    
 
-  .impact-section {
-    padding: 60px 0;
-    display: flex;
-    justify-content: center;
-    backdrop-filter: blur(20px);
-  }
-
-  .impact-container {
-    display: flex;
-    gap: 40px;
-    padding: 30px 50px;
-    background: rgba(255, 255, 255, 0);
-    border-radius: 25px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-    backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0);
-  }
-
-  .impact-card {
-    text-align: center;
-    padding: 20px;
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .impact-icon {
-    width: 50px;
-    margin: 0 auto 10px;
-    opacity: 0.8;
-  }
-
-  .impact-stat {
-    font-size: 28px;
-    font-weight: 600;
-    color: #111;
-  }
-
-  .impact-label {
-    font-size: 14px;
-    color: #444;
-    letter-spacing: 0.5px;
-  }
-
-  /* Responsive */
-  @media (max-width: 900px) {
-    .impact-container {
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .impact-card {
-      width: 45%;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .impact-card {
-      width: 100%;
-    }
-  }
-</style>
-
-  </template>
-
-  <template id="experiencesPage">
-  <section class="page-section experiences-page">
-    <div class="container">
-      <div class="page-header">
-        <h1 class="page-title">Our Experiences</h1>
-        <p class="page-subtitle">Authentic journeys through Arunachal Pradesh</p>
-      </div>
-      <div class="trip-grid" id="experiencesTripGrid">
-        <!-- Trips will be dynamically inserted -->
-      </div>
-    </div>
-  </section>
-  </template>
-
-  <template id="storymapPage">
-  <section class="page-section storymap-page">
-    <div class="page-header">
-      <h1 class="page-title">Story Map</h1>
-      <p class="page-subtitle">Explore the untouched regions of Arunachal Pradesh</p>
-    </div>
-    <div class="map-container">
-      <div id="interactiveMap" class="interactive-map"></div>
-    </div>
-  </section>
-  </template>
-
-  <template id="galleryPage">
-  <section class="page-section gallery-page">
-    <div class="page-header">
-      <h1 class="page-title">Gallery</h1>
-      <p class="page-subtitle">Documentary photography from our journeys</p>
-    </div>
-    <div class="container">
-      <div class="gallery-grid" id="galleryGrid"></div>
-    </div>
-  </section>
-  </template>
-
-  <template id="philosophyPage">
-  <section class="page-section philosophy-page">
-    <div class="container-narrow">
-      <div class="page-header">
-        <h1 class="page-title">Our Philosophy</h1>
-        <p class="page-subtitle">Experiences beyond packages</p>
-      </div>
-      
-      <div class="philosophy-mission glass-card">
-        <p class="philosophy-quote">Travel shaped by commerce isn't travel—it's consumption. We believe journeys should transform hearts, not just check boxes on itineraries.</p>
-        <p class="philosophy-text">In Arunachal Pradesh's remote corners, untouched by mass tourism, real India waits. Real stories. Real people. Real experiences that stay with you forever.</p>
-      </div>
-
-      <div class="values-grid" id="valuesGrid"></div>
-
-      <div class="testimonials-section">
-        <h2 class="section-heading">What Travelers Say</h2>
-        <div class="testimonial-grid" id="testimonialGrid"></div>
-      </div>
-    </div>
-  </section>
-  </template>
-
-  <template id="aboutPage">
-  <section class="page-section about-page">
-    <div class="container-narrow">
-      <div class="page-header">
-        <h1 class="page-title">About Us</h1>
-        <p class="page-subtitle">Travel with purpose, connect with authenticity</p>
-      </div>
-      
-      <div class="about-mission glass-card">
-        <h2>Our Mission</h2>
-        <p>We believe travel should be about authentic connections, not commercial transactions. Every journey is crafted to immerse you in the genuine culture and natural beauty of Arunachal Pradesh.</p>
-      </div>
-
-      <div class="values-grid">
-        <div class="value-card glass-card">
-          <h3>Authentic Connections</h3>
-          <p>Direct relationships with local families, not commercialized interactions.</p>
-        </div>
-        <div class="value-card glass-card">
-          <h3>Small Batches</h3>
-          <p>Groups of 4-6 people for meaningful, personalized experiences.</p>
-        </div>
-        <div class="value-card glass-card">
-          <h3>Community First</h3>
-          <p>Money goes directly to local communities, supporting their livelihoods.</p>
-        </div>
-        <div class="value-card glass-card">
-          <h3>Digital Detox</h3>
-          <p>Immersion in nature away from screens and distractions.</p>
-        </div>
-      </div>
-
-      <div class="community-impact glass-card">
-        <h2>Community Impact</h2>
-        <div class="impact-stats">
-          <div class="impact-stat">
-            <div class="impact-number">2,847</div>
-            <div class="impact-label">Travelers Served</div>
-          </div>
-          <div class="impact-stat">
-            <div class="impact-number">34</div>
-            <div class="impact-label">Communities Supported</div>
-          </div>
-          <div class="impact-stat">
-            <div class="impact-number">5</div>
-            <div class="impact-label">Years of Excellence</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonials-section">
-        <h2 class="section-heading">What Travelers Say</h2>
-        <div class="testimonial-grid">
-          <div class="testimonial-card glass-card">
-            <p class="testimonial-text">"The most authentic experience. Real connections, incredible food, beyond expectations."</p>
-            <p class="testimonial-author">Priya Sharma, Mumbai</p>
-            <div class="testimonial-rating">★★★★★</div>
-          </div>
-          <div class="testimonial-card glass-card">
-            <p class="testimonial-text">"Exactly what we sought. Genuine community connections away from tourism."</p>
-            <p class="testimonial-author">Michael Chen, Singapore</p>
-            <div class="testimonial-rating">★★★★★</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  </template>
-
-  <template id="contactPage">
-
-  <section class="page-section contact-page">
-     <div class="container-narrow">
-    <p class="section-label">Ready to Begin</p>
-    <h2 class="section-title">Get in Touch</h2>
-    <p class="contact-subtitle">Cut through the bamboo to reveal our contact.</p>
-
-    <!-- Bamboo Cutting Mini-Game (Self-Contained) -->
-<!-- Bamboo Cutting Mini-Game (Self-Contained) -->
-<div id="bambooGameContainer" style="max-width: 600px; margin: 50px auto 0; min-height: 320px; position: relative;">
-  
-  <style>
-    /* ---------- Bamboo area ---------- */
-    #bambooGameContainer .bamboo-stalks {
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      gap: 10px;
-      margin: 50px auto 60px;
-      min-height: 300px;
-      flex-wrap: wrap;
-    }
-
-    #bambooGameContainer .bamboo-stalk {
-      width: 34px;
-      background:
-        radial-gradient(circle at 30% 15%, rgba(255,255,255,0.35), transparent 55%),
-        linear-gradient(180deg, #5b8c4a 0%, #3e6d39 45%, #2d5530 100%);
-      border-radius: 18px;
-      position: relative;
-      cursor: crosshair;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      user-select: none;
-      box-shadow:
-        inset -3px 0 6px rgba(0, 0, 0, 0.35),
-        inset 3px 0 6px rgba(255, 255, 255, 0.12),
-        0 10px 22px rgba(0, 0, 0, 0.26);
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-      border: 1px solid rgba(12, 40, 20, 0.55);
-    }
-
-    #bambooGameContainer .bamboo-stalk::before,
-    #bambooGameContainer .bamboo-stalk::after {
-      content: '';
-      position: absolute;
-      left: 8%;
-      right: 8%;
-      height: 3px;
-      background: linear-gradient(90deg,
-        rgba(255,255,255,0.4),
-        rgba(0,0,0,0.6),
-        rgba(255,255,255,0.4));
-      border-radius: 999px;
-      opacity: 0.9;
-    }
-
-    #bambooGameContainer .bamboo-stalk::before {
-      top: 32%;
-    }
-
-    #bambooGameContainer .bamboo-stalk::after {
-      top: 68%;
-    }
-
-    #bambooGameContainer .bamboo-stalk:hover:not(.cut) {
-      transform: translateY(-4px);
-      box-shadow:
-        inset -3px 0 6px rgba(0, 0, 0, 0.35),
-        inset 3px 0 6px rgba(255, 255, 255, 0.12),
-        0 14px 28px rgba(0, 0, 0, 0.32);
-    }
-
-    #bambooGameContainer .bamboo-stalk.cut {
-      animation: bambooFall 0.9s ease-out forwards;
-    }
-
-    @keyframes bambooFall {
-      0% {
-        transform: translateY(0) rotateZ(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(190px) rotateZ(26deg);
-        opacity: 0;
-      }
-    }
-
-    #bambooGameContainer .cut-count {
-      font-size: 18px;
-      font-weight: 900;
-      color: #fff;
-      z-index: 2;
-      text-shadow:
-        0 2px 6px rgba(0, 0, 0, 0.6),
-        0 -1px 0 rgba(0, 0, 0, 0.3);
-      background: rgba(0, 0, 0, 0.25);
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    #bambooGameContainer .slice-effect {
-      position: fixed;
-      pointer-events: none;
-      font-size: 24px;
-      font-weight: bold;
-      z-index: 1000;
-      animation: sliceSlash 0.6s ease-out forwards;
-    }
-
-    @keyframes sliceSlash {
-      0% {
-        opacity: 1;
-        transform: translate(0, 0) scale(1);
-      }
-      100% {
-        opacity: 0;
-        transform: translate(20px, -30px) scale(0.5);
-      }
-    }
-
-    /* ---------- Minimal contact card ---------- */
-    #bambooGameContainer .contact-card-reveal {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.96);
-      opacity: 0;
-      pointer-events: none;
-      width: 320px;
-      max-width: 90vw;
-      padding: 20px 24px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
-      z-index: 10;
-      transition: all 0.6s ease 0.25s;
-      overflow: hidden;
-    }
-
-    #bambooGameContainer .contact-card-reveal.revealed {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translate(-50%, -50%) scale(1);
-    }
-
-    #bambooGameContainer .contact-content {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      text-align: center;
-    }
-
-    #bambooGameContainer .contact-minimal {
-      font-size: 14px;
-      font-weight: 500;
-      color: #1f2933;
-      text-decoration: none;
-      letter-spacing: 0.02em;
-      padding: 6px 0;
-      border-radius: 999px;
-      transition: color 0.2s ease, background 0.2s ease;
-    }
-
-    #bambooGameContainer .contact-minimal:hover {
-      background: rgba(148, 163, 184, 0.12);
-      color: #111827;
-    }
-
-    #bambooGameContainer .contact-minimal--accent {
-      color: #2563eb;
-    }
-
-    #bambooGameContainer .contact-minimal--accent:hover {
-      background: rgba(37, 99, 235, 0.06);
-      color: #1d4ed8;
-    }
-
-    /* ---------- Completion text ---------- */
-    #bambooGameContainer .completion-msg {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0;
-      pointer-events: none;
-      z-index: 5;
-      font-size: 28px;
-      font-weight: 300;
-      letter-spacing: 0.1em;
-      color: #1a1a1a;
-      transition: opacity 0.7s ease;
-    }
-
-    #bambooGameContainer .completion-msg.show {
-      opacity: 1;
-    }
-
-    /* Katana cursor */
-    .contact-page.knife-mode {
-      cursor: url('https://freesvg.org/img/DTRave-Katana-Sword.png') 12 0, auto;
-    }
-
-    /* Mobile responsiveness */
-    @media (max-width: 768px) {
-      #bambooGameContainer .bamboo-stalks {
-        gap: 8px;
-        margin: 40px auto 50px;
-      }
-
-      #bambooGameContainer .contact-card-reveal {
-        width: 90vw;
-        padding: 18px 18px;
-        border-radius: 16px;
-      }
-
-      #bambooGameContainer .contact-minimal {
-        font-size: 13px;
-      }
-    }
-  </style>
-
-  <div class="bamboo-stalks" id="bambooStalks"></div>
-  
-  <div class="contact-card-reveal" id="contactCardReveal">
-    <div class="contact-content">
-      <a class="contact-minimal" href="tel:6358006660">6358006660</a>
-      <a class="contact-minimal" href="mailto:unscriptedtravels@gmail.com">unscriptedtravels@gmail.com</a>
-      <a class="contact-minimal contact-minimal--accent" href="https://www.instagram.com/unscriptedtravels_/" target="_blank" rel="noopener">
-        @unscriptedtravels_
-      </a>
-    </div>
-  </div>
-
-  <div class="completion-msg" id="bambooComplete">Well done! </div>
-
-  <script>
-    (function() {
-      const container = document.getElementById("bambooGameContainer");
-      const stalksDiv = document.getElementById("bambooStalks");
-      const contactCard = document.getElementById("contactCardReveal");
-      const completeMsg = document.getElementById("bambooComplete");
-      const contactSection = container.closest(".contact-page");
-
-      if (contactSection) contactSection.classList.add("knife-mode");
-
-      // Responsive bamboo count: 3 on small phones, 4 on larger phones/tablets, 10 on desktop
-      const width = window.innerWidth;
-      let bambooCount;
-      if (width <= 480) {
-        bambooCount = 3;
-      } else if (width <= 768) {
-        bambooCount = 4;
-      } else {
-        bambooCount = 10;
-      }
-
-      const cutsNeeded = 1;
-      let stalksRemaining = bambooCount;
-
-      for (let i = 0; i < bambooCount; i++) {
-        const stalk = document.createElement("div");
-        stalk.className = "bamboo-stalk";
-        stalk.dataset.cuts = 0;
+	<link rel="stylesheet" type="text/css" href="assets/icons/line-awesome/css/line-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/icons/flaticon/flaticon.css">
+    <link rel="stylesheet" type="text/css" href="assets/icons/fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/icons/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="assets/icons/feather/css/feather.css">
         
-        const randomHeight = 170 + Math.random() * 90; // 170–260px
-        stalk.style.height = randomHeight + "px";
-        
-        stalk.innerHTML = `<span class="cut-count">${cutsNeeded}</span>`;
+    <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/vendor/flatpickr/css/flatpicker.css">
+    <link rel="stylesheet" href="assets/css/lc_lightbox.css">
+    <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="assets/vendor/nouislider/nouislider.min.css">
 
-        stalk.addEventListener("mousemove", function(e) {
-          if (this.classList.contains("cut")) return;
+    <!-- style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Figtree:ital,wght@0,300..900;1,300..900&family=Kaushan+Script&display=swap" rel="stylesheet">
+	
+</head>
 
-          const cuts = parseInt(this.dataset.cuts) + 1;
-          this.dataset.cuts = cuts;
-          this.querySelector(".cut-count").textContent = cutsNeeded - cuts;
-
-          const slashDiv = document.createElement("div");
-          slashDiv.className = "slice-effect";
-          slashDiv.textContent = "🔪";
-          slashDiv.style.left = e.clientX + "px";
-          slashDiv.style.top = e.clientY + "px";
-          container.appendChild(slashDiv);
-
-          setTimeout(() => slashDiv.remove(), 600);
-
-          if (navigator.vibrate) navigator.vibrate(30);
-
-          if (cuts >= cutsNeeded) {
-            this.classList.add("cut");
-            stalksRemaining--;
-
-            if (stalksRemaining === 0) {
-              setTimeout(() => {
-                contactCard.classList.add("revealed");
-                completeMsg.classList.add("show");
-
-                if (contactSection) contactSection.classList.remove("knife-mode");
-              }, 200);
-            }
-          }
-        });
-
-        stalksDiv.appendChild(stalk);
-      }
-    })();
-  </script>
-</div>
-
-
-  </div>
-</section>
-
-    <section class="faq-section">
-        <p class="section-label">Everything you need to know about traveling with us</p>
-        <h2 class="section-title">Frequently Asked Questions</h2>
-
-        <div class="faq-list">
-
-          <div class="faq-item faq-item--open">
-            <button class="faq-header">
-              <span>What's the group size?</span>
-              <span class="faq-icon faq-icon--down"></span>
-            </button>
-            <div class="faq-body">
-              <p>
-                We keep groups intimate at 4–6 people maximum. This ensures
-                authentic local connections and a personalized experience.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-  <button class="faq-header">
-    <span>What is the Inner Line Permit (ILP) and why is it required?</span>
-    <span class="faq-icon faq-icon--down"></span>
-  </button>
-  <div class="faq-body">
-    <p>
-      The Inner Line Permit (ILP) is an official travel document issued by the Government of Arunachal Pradesh that Indian citizens from other states must obtain to enter the state. It helps protect sensitive border areas and safeguard the culture and land rights of local tribal communities. You can apply for the ILP online before your journey, and if you prefer, we can also help arrange it for you as a separate, additional service (the permit fee is not included in the trip price).
-    </p>
-  </div>
-</div>
-          
-          <div class="faq-item">
-            <button class="faq-header">
-              <span>Are meals vegetarian-friendly?</span>
-              <span class="faq-icon faq-icon--down"></span>
-              </button>
-      <div class="faq-body">
-        <p>
-          Yes, all base meals are vegetarian and planned with local,
-          seasonal ingredients. Non‑vegetarian dishes can be arranged
-          on demand, but are chargeable separately depending on what
-          you request and what the host family can source.
-        </p>
-      </div>
+<body id="bg" class="selection:bg-[#484848] selection:text-white">
+    
+<!-- LOADING AREA START ===== -->
+<div class="loading-area">
+    <div class="loading-box"></div>
+    <div class="loading-pic">
+        <figure class="loader">
+            <div class="dot white"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </figure>
     </div>
-
-          <div class="faq-item">
-            <button class="faq-header">
-              <span>What's included in the trip cost?</span>
-              <span class="faq-icon faq-icon--down"></span>
-            </button>
-            <div class="faq-body">
-              <p>
-                Boutique stays, on‑ground transport, guided experiences, and most
-                meals are included. Flights are usually separate so you can choose
-                what works best for you.
-              </p>
-                <p>
-          Alcohol is not included in the trip cost, but can be provided
-          on request and will be billed separately. Local wine and
-          rice‑based brews are often available to taste, usually in the
-          range of about ₹250–₹500 per glass or bottle, depending on
-          the hosting family and what they serve.
-        </p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-  <button class="faq-header">
-    <span>Can we rent a self‑drive vehicle?</span>
-    <span class="faq-icon faq-icon--down"></span>
-  </button>
-  <div class="faq-body">
-    <p>
-      Yes. Self‑drive vehicles can be arranged on request and are fully chargeable as an add‑on.
-    </p>
-    <p>
-      We always negotiate with local partners to get you the lowest available rate we can find,
-      but you are welcome to use your own bargaining skills with the operator on the ground as well.
-    </p>
-  </div>
 </div>
-          <div class="faq-item">
-            <button class="faq-header">
-              <span>What's the fitness level required?</span>
-              <span class="faq-icon faq-icon--down"></span>
-            </button>
-            <div class="faq-body">
-              <p>
-                Light to moderate. Expect village walks and a few short hikes;
-                we brief you clearly for each journey so you know what to expect.
-              </p>
-            </div>
-          </div>
+<!-- LOADING AREA  END ====== -->
 
-          <div class="faq-item">
-            <button class="faq-header">
-              <span>Can we customize our trip?</span>
-              <span class="faq-icon faq-icon--down"></span>
-            </button>
-            <div class="faq-body">
-              <p>
-                Absolutely. We curate private departures for small groups, families,
-                and creators who want a specific kind of experience or story.
-              </p>
+<!-- Curser Pointer -->
+<div class="cursor"></div>
+<div class="cursor2"></div>
+	<div class="page-wraper">
+	
+        <header class="site-header sticky-header absolute lg:left-8.75 lg:right-8.75 lg:top-8.75 left-0 right-0 top-0 duration-500 z-999 [.site-header.is-fixed]:fixed [.site-header.is-fixed]:animate-header-scroll-animation [.site-header.is-fixed]:bg-primary [.site-header.is-fixed]:rounded-b-3xl [.site-header.is-fixed]:top-0">
+    <div class="main-bar-wraper">
+        <div class="w-full lg:min-h-30 min-h-20 lg:ps-8.75 px-4 lg:pe-13.75 duration-500 rounded-5xl flex items-center justify-between">
+            <div class="flex relative w-full">
+                <div class="flex items-center relative z-9 h-20 lg:w-44 w-30">
+                    <a href="index.html" class="table-cell align-middle">
+                        <img src="assets/images/logo-dark.png" alt="logo" class="object-contain duration-500">
+                    </a>
+                </div>
+                <button class="xmenu-toggler lg:hidden float-right mt-4.5 mb-4 md:ml-7 ml-4 size-11 bg-dark-600 relative cursor-pointer max-lg:order-1" type="button">
+                    <span class="block absolute left-2.5 h-0.5 rounded-px bg-white duration-300 top-3.25 w-5.5"></span>
+                    <span class="block absolute left-2.5 h-0.5 rounded-px bg-white duration-0 top-5.5 w-6.25"></span>
+                    <span class="block absolute left-2.5 h-0.5 rounded-px bg-white duration-300 top-8 w-4"></span>
+                </button>
+                <div class="lg:hidden fixed top-0 left-0 bg-black size-full duration-300 z-999 opacity-0 visible pointer-events-none menu-close fade-overlay"></div>
+                <div class="flex lg:justify-center lg:basis-auto lg:grow max-lg:flex-col justify-start font-base max-lg:fixed max-lg:h-screen max-lg:px-5 max-lg:top-0 max-lg:-left-75 max-lg:z-9999 max-lg:bg-white max-lg:w-72 max-lg:overflow-auto max-lg:duration-700 header-nav custom-scroll">
+                    <div class="flex items-center relative z-9 py-6.25 lg:hidden">
+                        <a href="index.html" class="table-cell align-middle">
+                            <img src="assets/images/logo-dark.png" alt="" class="object-contain duration-500">
+                        </a>
+                    </div>
+                    <ul class="lg:flex flex-wrap navbar-nav">
+                        <li class="lg:inline-block block max-lg:border-b max-lg:border-gray-200 relative group">
+                            <a class="lg:py-7.5 py-2 xl:px-5 lg:px-2 relative lg:inline-block block text-lg font-medium lg:text-white text-primary hover:text-secondary" href="javascript:void(0);">
+                                <span class="inline-block">Home</span>
+                                <i class="fas fa-chevron-right lg:!hidden !block size-7 !leading-7 text-center text-xs bg-black text-white float-end"></i>
+                            </a>
+                            
+                        </li>
+                        <li class="lg:inline-block block max-lg:border-b max-lg:border-gray-200 relative group">
+                            <a class="lg:py-7.5 py-2 xl:px-5 lg:px-2 relative lg:inline-block block text-lg font-medium lg:text-white text-primary hover:text-secondary" href="about-1.html">
+                                <span class="inline-block">About</span>
+                            </a>
+                        </li>
+                        <li class="lg:inline-block block max-lg:border-b max-lg:border-gray-200 relative group">
+                            <a class="lg:py-7.5 py-2 xl:px-5 lg:px-2 relative lg:inline-block block text-lg font-medium lg:text-white text-primary hover:text-secondary" href="javascript:void(0);">
+                                <span class="inline-block">Pages</span>
+                                <i class="fas fa-chevron-right lg:!hidden !block size-7 !leading-7 text-center text-xs bg-black text-white float-end"></i>
+                            </a>
+                            <ul class="lg:absolute bg-white lg:rounded-xxl block lg:left-0 w-full lg:w-55 lg:opacity-0 lg:invisible lg:translate-y-10 z-10 mt-0 text-left duration-500 lg:group-hover:opacity-100 lg:group-hover:visible lg:group-hover:translate-y-0 max-lg:hidden sub-menu">
+                            
+                                <li class="relative border-b border-black/5"><a class="block relative text-sm text-primary font-semibold py-3 lg:px-5 duration-500 hover:text-primary hover:pl-6.25" href="gallery.html"><span>Gallery</span> </a></li>
+                                <li class="relative border-b border-black/5"><a class="block relative text-sm text-primary font-semibold py-3 lg:px-5 duration-500 hover:text-primary hover:pl-6.25" href="faq.html"><span>Faq</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="lg:inline-block block max-lg:border-b max-lg:border-gray-200 relative group">
+                            <a class="lg:py-7.5 py-2 xl:px-5 lg:px-2 relative lg:inline-block block text-lg font-medium lg:text-white text-primary hover:text-secondary" href="tour-2-grid.html">
+                                <span class="inline-block">Experience</span>
+                                <i class="fas fa-chevron-right lg:!hidden !block size-7 !leading-7 text-center text-xs bg-black text-white float-end"></i>
+                            </a>
+                            
+                        </li>
+                        
+                        <li class="lg:inline-block block max-lg:border-b max-lg:border-gray-200 relative group">
+                            <a class="lg:py-7.5 py-2 xl:px-5 lg:px-2 relative lg:inline-block block text-lg font-medium lg:text-white text-primary hover:text-secondary" href="contact.html">
+                                <span class="inline-block">Contact</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="lg:hidden block max-lg:p-5 text-center mt-auto">
+                        <ul>
+                            <li class="inline-block mx-0.5">
+                                <a class="size-10 !leading-10 border border-black/10 text-center text-primary fab fa-facebook-f" target="_blank" href="https://www.facebook.com/"></a>
+                            </li>
+                            <li class="inline-block mx-0.5">
+                                <a class="size-10 !leading-10 border border-black/10 text-center text-primary fab fa-twitter" target="_blank" href="https://twitter.com/s"></a>
+                            </li>
+                            <li class="inline-block mx-0.5">
+                                <a class="size-10 !leading-10 border border-black/10 text-center text-primary fab fa-linkedin-in" target="_blank" href="https://www.linkedin.com/showcase/3686700/admin/"></a>
+                            </li>
+                            <li class="inline-block mx-0.5">
+                                <a class="size-10 !leading-10 border border-black/10 text-center text-primary fab fa-instagram" target="_blank" href="https://www.instagram.com//"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="flex lg:justify-end lg:items-center z-9 h-20 xl:pl-8 max-lg:ms-auto">
+                    <div class="flex items-center">
+                        <ul class="ml-5 flex items-center -mr-2.5">
+                            <li class="inline-block">
+                                <button type="button" class="flex items-center justify-center size-14 px-4 quick-search cursor-pointer text-white" data-target="#searchOverlay1">
+                                    <i class="fa fa-search text-xl"></i>
+                                </button>
+                            </li>
+                            <li class="inline-block" data-drawer="#offcanvas-right" data-drawer-placement="right">
+                                <button class="lg:mt-4.5 lg:mb-4 lg:ml-5 lg:size-11 bg-dark-600 relative cursor-pointer max-lg:order-1 max-md:ms-auto toggle-nav-btn" type="button" aria-label="Toggle drawer">
+                                    <span class="block absolute left-2.5 h-0.5 rounded-px bg-white duration-300 top-3.25 w-7 max-lg:hidden"></span>
+                                    <span class="block absolute left-2.5 h-0.5 rounded-px bg-white duration-0 top-5.5 w-7 max-lg:hidden"></span>
+                                    <span class="block absolute left-2.5 h-0.5 rounded-px bg-white duration-300 top-8 w-7 max-lg:hidden"></span>
+                                    <b class="lg:hidden uppercase fixed -rotate-90 -translate-y-1/2 -right-7.5 bg-primary px-5 rounded-t-2lg text-white tracking-[2px] top-1/2">Info</b>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fixed -top-full left-0 size-full bg-body-bg z-999 flex items-center justify-center p-8 duration-500 xmenu-search" id="searchOverlay1">
+                    <form class="absolute top-1/2 left-1/2 -translate-1/2 w-[calc(100%_-_80px)] max-w-150 text-primary text-3xl font-light text-left outline-none p-1.5 duration-500 bg-paleaqua rounded-25xl" action="#">
+                        <div class="relative flex flex-wrap items-stretch w-full bg-white rounded-25xl overflow-hidden">
+                            <input name="search" value="" type="text" class="h-17.5 pr-3 pl-7.5 text-lg text-primary w-[1%] flex-1 outline-none duration-300 placeholder:text-primary focus:border-primary" placeholder="Search...">
+                            <span class="flex">
+                                <button type="button" class="px-2.5 outline-none size-17.5 bg-primary text-2xl text-white rounded-full flex-1 ml-2.5 duration-500 cursor-pointer"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                    <button type="button" class="absolute right-8 top-8 text-primary bg-citrusyellow text-base size-10 cursor-pointer rounded search-remove"><i class="fa fa-close"></i></button>
+                </div>
             </div>
-          </div>
-
         </div>
-      </section>
     </div>
-  </section>
-  </template>
+</header>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container-narrow">
-      <div class="footer-content">
-        <p>&copy; <span id="currentYear">2025</span> Unscripted Travels</p>
-      </div>
+
+        <div id="smooth-wrapper">
+		    <div id="smooth-content">
+                <!-- CONTENT START -->
+                <div class="page-content">
+                    <!-- Banner Style One -->
+                    <div class="3xl:h-237.5 2xl:h-225 sm:h-192 h-170 overflow-hidden relative trv-banner-1-wrap">
+    <div class="trv-banner-1-rain-effect">
+        <div class="absolute left-0 size-full z-2 rain front-row"></div>
+        <div class="absolute left-0 size-full z-2 rain back-row"></div>
     </div>
-  </footer>
-
-  <!-- Trip Detail Modal -->
-  <div class="modal" id="tripModal">
-    <div class="modal-overlay" id="modalOverlay"></div>
-    <div class="modal-content" id="modalContent">
-      <button class="modal-close" id="modalClose" aria-label="Close modal">×</button>
-      <div class="modal-body" id="modalBody">
-        <!-- Modal content will be dynamically inserted -->
-      </div>
+    <video muted loop autoplay class="absolute left-1/2 top-1/2 -translate-1/2 object-cover size-full z-0">
+        <source src="assets/images/video-1.mp4" type="video/mp4">
+    </video>
+    <div class="relative z-2 3xl:h-220 2xl:h-207.5 lg:h-171.25 h-195 lg:m-8.75 lg:rounded-3xl bg-black/35">
+        <div class="xl:pt-50 md:pt-40 pt-37.5 md:pl-17.5 max-md:px-5 max-w-255">
+            <span class="2xl:text-48 text-3xl leading-17.5 text-aquamist xl:pl-12.5 font-display block">Explore</span>
+            <div class="relative">
+                <h1 class="!font-display 2xl:!text-62xl xl:!text-45xl md:!text-32xl !text-80 !text-white relative inline-block animate-slide-left" title="India">NorthEast</h1>
+                <img src="assets/images/butterfly.gif" alt="image" class="absolute 2xl:top-15 xl:top-6 md:top-3 -top-5 z-9 2xl:right-5 xl:right-65 lg:right-85 sm:right-50 right-0 xl:w-50 w-37.5">
+                <h1 class="!font-display 2xl:!text-62xl xl:!text-45xl md:!text-32xl !text-80 !text-transparent absolute left-0 top-0 z-1 [-webkit-text-stroke:2px_#fff] animate-slide-left" title="India">NorthEast</h1>
+            </div>
+            <span class="absolute 2xl:-bottom-8.75 xl:-bottom-12.5 bottom-0 xl:left-25 left-12.5 max-2xl:max-w-108 max-xl:max-w-75 max-md:hidden">
+                <img src="assets/images/main-slider/slider1/Rock.png" alt="Image" width="582" height="473">
+            </span>
+            <div class="text-lg leading-7.5 text-white relative 2xl:ml-175 xl:ml-120 xl:max-w-57.5 w-full mb-7.5">Because some journeys rewrite who we are</div>
+            <div class="2xl:ml-187.5 xl:ml-120 relative z-[4]"><a href="contact.html" class="site-button butn-bg-shape">Get In Touch</a></div>
+        </div>
+        <div class="text-white absolute bottom-7.5 3xl:right-112.5 2xl:right-64.5 sm:right-10 right-5 flex items-center z-4">
+            <span class="pr-26.25 text-xs leading-4.5 tracking-[0.2em] uppercase relative inline-block after:content-[''] after:absolute after:w-16 after:h-px after:bg-white after:right-5 after:top-1/2 after:-translate-y-1/2 max-sm:hidden">Follow Us</span>
+            <ul class="flex">
+                <li><a href="https://www.facebook.com" target="_blank" class="text-white text-xl ml-5 duration-500 block hover:text-secondary hover:-translate-y-1.25"><i class="fa-brands fa-facebook-f"></i></a></li>
+                <li><a href="https://www.linkedin.com" target="_blank" class="text-white text-xl ml-5 duration-500 block hover:text-secondary hover:-translate-y-1.25"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                <li><a href="https://www.instagram.com/unscriptedtravels_/" target="_blank" class="text-white text-xl ml-5 duration-500 block hover:text-secondary hover:-translate-y-1.25"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://www.x.com" target="_blank" class="text-white text-xl ml-5 duration-500 block hover:text-secondary hover:-translate-y-1.25"><i class="fa-brands fa-x-twitter"></i></a></li>
+            </ul>
+        </div>
+        <div class="absolute inset-0 z-[3] overflow-hidden max-lg:hidden">
+            <div class="absolute top-1/2 -translate-y-1/2 size-175 right-0">
+                <div class="-right-4/5 absolute z-2 rotate-center animate-rotate-center"><span class="size-175 rounded-full border border-white/30 block relative after:size-3.5 after:bg-white after:rounded-full after:absolute after:right-8.75 after:top-1/4 after:z-10"></span></div>
+            </div>
+            <div class="absolute top-1/2 -translate-y-1/2 size-225 right-0">
+                <div class="right-[-70%] absolute z-2 animate-rotate-center"><span class="size-225 rounded-full border border-white/30 block relative after:size-3.5 after:bg-secondary after:rounded-full after:absolute after:right-18.75 after:bottom-1/5 after:z-10"></span></div>
+            </div>
+            <div class="absolute top-1/2 -translate-y-1/2 size-275 right-0">
+                <div class="-right-3/5 absolute z-2 animate-rotate-center"><span class="size-275 rounded-full border border-white/30 block relative after:size-3.5 after:bg-citrusyellow after:rounded-full after:absolute after:left-0.75 after:top-2/5 after:z-10"></span></div>
+            </div>
+        </div>
     </div>
-  </div>
+    <div class="absolute left-0 bottom-0 z-10">
+        <div class="xl:max-w-82.5 max-w-57.5 animate-rotate-90-br-cw">
+            <img src="assets/images/lizard.png" alt="Image" class="w-full" width="330" height="346">
+            <img src="assets/images/li-eye.gif" alt="image" class="absolute bottom-[70%] left-[24%] w-10">
+        </div>
+    </div>
+    <div class="absolute top-37.5 w-full">            
+        <div class="inline-block whitespace-nowrap animate-moveCloud">
+            <img src="assets/images/cloud-1.png" alt="Image" class="w-auto" width="400" height="332">
+        </div>
+    </div>
+    <div class="absolute top-0 w-full">
+        <div class="inline-block whitespace-nowrap animate-moveCloud">
+            <img src="assets/images/cloud-2.png" alt="Image" class="w-auto" width="297" height="225">    
+        </div>
+    </div>
+</div>
+                    <!-- Banner Style One End -->
+                    
+                    <!-- SEARCH BAR START-->
+                    
+                    <!-- SEARCH BAR END--> 
+                    
+                    <!--POPULAR DESTINATION SECTION START-->
+                    
+                    <!--POPULAR DESTINATION SECTION END-->
+                    
+                    <!--WE RECOMMEND SECTION START-->
+                    <div class="bg-paleaqua lg:pt-30">
+    <div class="container">
+        <div class="grid grid-cols-12">
+            <div class="xl:col-span-5 lg:col-span-7 col-span-12 px-3.75 max-lg:mb-40">
+                <div class="2xl:mb-30 mb-10 relative">
+                    <!-- TITLE START-->
+                    <div class="text-left 2xl:mb-15 mb-10">
+                        <h2 class="xl:text-46 md:text-40 text-3xl mb-2.5">We <span class="text-citrusyellow">Create </span>Moments You’ll Remember Forever</h2>
+                        <p class="2xl:mb-12.5 mb-7 sm:pr-8.75 text-base">Unscripted Travels is built for the new generation of explorers — the ones who chase stories, not schedules. We help travelers discover places that heal, inspire, and change them. Every trip we design is crafted with emotion, authenticity, and a love for the unexpected.
+                        </p>
+                    </div>
+                    <!-- TITLE END-->
+                    <div class="mb-5 flex max-sm:flex-wrap">
+                        <div class="sm:w-35 w-full sm:h-51 h-40 p-2.25 bg-white rounded-3xl flex min-w-35 sm:mr-7.5 max-sm:mb-10">
+                            <div class="bg-primary shadow-[0px_4px_4px_rgba(0,0,0,0.25)] p-2.5 rounded-2xxl text-center flex flex-col items-center justify-center w-full">
+                                <span class="text-38 text-citrusyellow font-black block">24/7</span>
+                                <span class="text-white text-2xl font-title font-medium block">Guide Support</span>
+                            </div> 
+                        </div>
+                        <div>
+                            <div class="flex mb-7.5 trv-icon-bx-st1">
+                                <div class="bg-no-repeat size-21.25 min-w-21.25 bg-cover mr-7.5 flex items-center justify-center bg-[url(../images/trv-icon/Icon-Bg.png)] trv-icon-bx-media">
+                                    <span><img src="assets/images/trv-icon/travel-guide.png" alt="travel-guide" width="48" height="49" loading="lazy" class="max-w-12"></span>
+                                </div>
+                                <div >
+                                    <h4 class="mb-3 font-medium text-2xl">Trusted travel guide</h4>
+                                    <p>Because adventures don’t always go as planned, but we’re always here to guide you through the moments that matter.</p>   
+                                </div>
+                            </div>
+                            <div class="flex mb-7.5 trv-icon-bx-st1">
+                                <div class="bg-no-repeat size-21.25 min-w-21.25 bg-cover mr-7.5 flex items-center justify-center bg-[url(../images/trv-icon/Icon-Bg.png)] trv-icon-bx-media">
+                                    <span><img src="assets/images/trv-icon/mission-icon.png" alt="mission-icon" width="48" height="49" loading="lazy" class="max-w-12"></span>
+                                </div>
+                                <div >
+                                    <h4 class="mb-3 font-medium text-2xl">Mission & Vision</h4>
+                                    <p>Our mission is to create journeys that shape you. To connect you to people, places, and moments that feel real — and leave you changed.</p>   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sm:flex items-center">
+                        <div class="mr-3">
+                            <a href="destination-detail.html" class="site-button butn-bg-shape">Discover More</a>
+                        </div>
+                        <div class="flex max-sm:pt-2.5">
+                            <div class="flex items-center mr-5">
+                                <span class="size-9 inline-flex rounded-full overflow-hidden border border-white ml-0">
+                                    <img src="assets/images/hpy-cus/pic1.jpg" alt="img" width="34" height="34" loading="lazy">
+                                </span>
+                                <span class="size-9 inline-flex rounded-full overflow-hidden border border-white -ml-2.5">
+                                    <img src="assets/images/hpy-cus/pic2.jpg" alt="img" width="34" height="34" loading="lazy">
+                                </span>
+                                <span class="size-9 inline-flex rounded-full overflow-hidden border border-white -ml-2.5">
+                                    <img src="assets/images/hpy-cus/pic3.jpg" alt="img" width="34" height="34" loading="lazy">
+                                </span>
+                            </div>
+                            <div>
+                                <span class="block font-black text-22 text-primary">3.5k</span>
+                                <p class="mb-0 uppercase font-medium text-xs">Happy Customer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="xl:col-span-7 lg:col-span-5 col-span-12 relative px-3.75">
+                <div class="absolute z-1 lg:top-7.5 -top-40.5 3xl:-right-36.25 lg:-right-0.25 -right-6.25 animate-slide-top max-md:hidden">
+                    <div class="absolute lg:-left-27.5 -left-22.5 bottom-1.25">
+                        <img src="assets/images/plane1.png" alt="image" class="max-lg:max-w-80" width="384" height="193" loading="lazy">
+                    </div>
+                    <div class="bg-white rounded-xl py-1 lg:pl-13.75 pl-10.75 pr-6 inline-flex items-center lg:w-88 w-70">
+                        <h2 class="!font-display !font-black lg:!text-83 !text-6xl leading-none !text-secondary !mb-0 !text-shadow-[0px_4px_0px_var(--primary)] !mr-6.75">5</h2>
+                        <span class="font-black lg:text-28 text-2xl leading-[1.2] text-primary">Years of Experience</span>
+                    </div>
+                </div>
+                <div class="mt-3 xl:size-105 sm:size-90 size-70 border-[20px] border-white rounded-full
+                shadow-[0px_27px_35.9px_rgba(41,137,145,0.2)] max-xl:relative max-xl:-bottom-41.25 max-lg:bottom-1/2 max-lg:translate-x-1/2 max-md:translate-x-0">
+                    <img src="assets/images/we-rec-pic2.jpg" alt="image" class="w-full rounded-full" width="380" height="380" loading="lazy">
+                </div>
+                <div class="absolute 3xl:-right-43.75 right-0.25 bottom-0 max-lg:w-[80%]">
+                    <img src="assets/images/we-rec-pic.png" alt="Image" width="764" height="586" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                    <!--WE RECOMMEND SECTION END-->
+                    
+                    <!-- CLIENT LOGO SECTION START -->
+                    <div class="p-5 bg-paleaqua">
+    <div class="py-5 bg-white border-4 border-dashed border-paleaqua">
+        <div class="container">
+            <div class="grid grid-cols-12 items-center">
+                <div class="xl:col-span-3 col-span-12">
+                    <div>
+                        <h2 class="!font-black !leading-[1] xl:text-46 md:text-40 text-3xl max-xl:mb-5 max-xl:text-center"><span class="!font-base text-citrusyellow block text-5xl !font-black">1K+ </span>Brands Trust Us</h2>
+                    </div>
+                </div>
+                <div class="xl:col-span-9 col-span-12">
+                    <div class="swiper brand-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="text-center">
+                                    <a href="about-1.html"><img src="assets/images/client-logo/dark/1.png" class="w-auto h-11.25 mx-auto opacity-40" alt="img" width="339" height="82" loading="lazy"></a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="text-center">
+                                    <a href="about-1.html"><img src="assets/images/client-logo/dark/2.png" class="w-auto h-11.25 mx-auto opacity-40" alt="img" width="232" height="91" loading="lazy"></a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="text-center">
+                                    <a href="about-1.html"><img src="assets/images/client-logo/dark/3.png" class="w-auto h-11.25 mx-auto opacity-40" alt="img" width="389" height="91" loading="lazy"></a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="text-center">
+                                    <a href="about-1.html"><img src="assets/images/client-logo/dark/4.png" class="w-auto h-11.25 mx-auto opacity-40" alt="img" width="219" height="91" loading="lazy"></a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="text-center">
+                                    <a href="about-1.html"><img src="assets/images/client-logo/dark/5.png" class="w-auto h-11.25 mx-auto opacity-40" alt="img" width="211" height="91" loading="lazy"></a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="text-center">
+                                    <a href="about-1.html"><img src="assets/images/client-logo/dark/1.png" class="w-auto h-11.25 mx-auto opacity-40" alt="img" width="339" height="81" loading="lazy"></a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="text-center">
+                                    <a href="about-1.html"><img src="assets/images/client-logo/dark/2.png" class="w-auto h-11.25 mx-auto opacity-40" alt="img" width="232" height="91" loading="lazy"></a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="text-center">
+                                    <a href="about-1.html"><img src="assets/images/client-logo/dark/3.png" class="w-auto h-11.25 mx-auto opacity-40" alt="img" width="339" height="91" loading="lazy"></a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="text-center">
+                                    <a href="about-1.html"><img src="assets/images/client-logo/dark/4.png" class="w-auto h-11.25 mx-auto opacity-40" alt="img" width="219" height="91" loading="lazy"></a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="text-center">
+                                    <a href="about-1.html"><img src="assets/images/client-logo/dark/5.png" class="w-auto h-11.25 mx-auto opacity-40" alt="img" width="211" height="91" loading="lazy"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                    <!-- CLIENT LOGO  SECTION End -->
+                    
+                    <!-- VIDEO WITH ACHIVMENT SECTION START-->
+                     <div class="lg:py-30 py-15 bg-paleaqua">
+    <div class="container">
+        <div class="relative md:rounded-6xl rounded-3xl overflow-hidden">
+            <div class="lg:h-160 sm:h-200 h-150 bg-black overflow-hidden relative">
+                <div class="flex items-center h-full relative z-2 justify-center">
+                    <div class="video-section-outer">
+                        <div class="video-section">
+                            <a href="https://youtu.be/eWpeh0TweyM" class="popup-youtube play-now-video">
+                                <i class="icon fa fa-play"></i>
+                                <span class="ripple"></span>
+                            </a>                                              
+                        </div>
+                    </div>
+                    <div class="absolute 2xl:h-107.5 lg:h-100.5 sm:h-110.5 h-100 max-md:text-center rounded-3xl border-[10px] border-white/20 md:top-12.5 md:right-12.5 md:left-12.5 top-3.5 right-3.5 left-3.5">
+                        <div class="xl:max-w-127.5 max-w-80 xl:h-71.75 bg-[url(../images/say-yes.png)] bg-cover w-full absolute lg:top-22.5 top-15.5 lg:-right-5 md:right-[20%] right-0 z-10 xl:pl-32.5 lg:pl-20 lg:pt-27 lg:pb-2.5 lg:pr-2.5 lg:bg-position-[center_18px] sm:bg-position-[-40px_-36px] bg-position-[-10px_-16px] bg-no-repeat">
+                            <div class="text-white xl:text-40 sm:text-36 text-26 leading-[1] font-display">Say <span class="xl:text-25xl md:text-80 text-6xl text-citrusyellow">Yes!</span></div>
+                            <div class="text-white xl:text-40 sm:text-36 text-26 leading-[1] font-display">To New Adventure</div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="h-200 md:h-250 opacity-100 bg-[center_top] bg-no-repeat bg-cover left-0 top-0 absolute translate-z-0 w-full z-1 bg-[url(../images/background/vid-bg2.jpg)] parallax-image"></div>
+                <div class="lg:h-40 sm:h-65 h-40 sm:p-10 pb-2.5 p-5 absolute bottom-0 z-10 right-0 left-0 bg-[rgba(6,97,104,0.62)] backdrop-blur-[5px]">
+                    <div class="grid grid-cols-12">
+                        <div class="lg:col-span-3 col-span-6 lg:mb-7.5 mb-5">
+                            <div class="flex z-1">
+                                <div class="xl:w-12.5 sm:w-10.5 w-7 md:max-w-12.5 sm:max-w-10.5 max-w-7 xl:mr-7.5 mr-3.5">
+                                    <img src="assets/images/trv-icon/count-icon1.png" alt="Image" class="w-full" width="50" height="50" loading="lazy">
+                                </div>
+                                <div>
+                                    <h4 class="!font-medium !text-white sm:mb-5 mb-2.5 xl:text-2xl sm:text-xl text-sm">Trip Satisfaction</h4>
+									<div class="font-black xl:text-42 sm:text-36 text-2xl leading-[0.75] font-base text-white">
+									<span class="value" data-value="99">99</span><b>%</b></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-3 col-span-6 lg:mb-7.5 mb-5">
+                            <div class="flex">
+                                <div class="xl:w-12.5 sm:w-10.5 w-7 md:max-w-12.5 sm:max-w-10.5 max-w-7 xl:mr-7.5 mr-3.5">
+                                    <img src="assets/images/trv-icon/count-icon2.png" alt="Image"  class="w-full" width="50" height="50" loading="lazy">
+                                </div>
+                                <div class="trv-icon-content-info">
+                                    <h4 class="!font-medium !text-white sm:mb-5 mb-2.5 xl:text-2xl sm:text-xl text-sm">Happy Traveler</h4>
+									<div class="font-black xl:text-42 sm:text-36 text-2xl leading-[0.75] font-base text-white">
+									<span class="value" data-value="3.5">3.5</span><b>K</b></div>
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="lg:col-span-3 col-span-6 lg:mb-7.5 mb-5">
+                            <div class="flex">
+                                <div class="xl:w-12.5 sm:w-10.5 w-7 md:max-w-12.5 sm:max-w-10.5 max-w-7 xl:mr-7.5 mr-3.5">
+                                    <img src="assets/images/trv-icon/count-icon3.png" alt="Image"  class="w-full" width="50" height="50" loading="lazy">
+                                </div>
+                                <div class="trv-icon-content-info">
+                                    <h4 class="!font-medium !text-white sm:mb-5 mb-2.5 xl:text-2xl sm:text-xl text-sm">Experiences</h4>
+									<div class="font-black xl:text-42 sm:text-36 text-2xl leading-[0.75] font-base text-white">
+									<span class="value" data-value="4.5">4.5</span><b>K</b></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-3 col-span-6 lg:mb-7.5 mb-5">
+                            <div class="flex">
+                                <div class="xl:w-12.5 sm:w-10.5 w-7 md:max-w-12.5 sm:max-w-10.5 max-w-7 xl:mr-7.5 mr-3.5">
+                                    <img src="assets/images/trv-icon/count-icon4.png" alt="Image"  class="w-full" width="50" height="50" loading="lazy">
+                                </div>
+                                <div class="trv-icon-content-info">
+                                    <h4 class="!font-medium !text-white sm:mb-5 mb-2.5 xl:text-2xl sm:text-xl text-sm">Our Experience</h4>
+									<div class="font-black xl:text-42 sm:text-36 text-2xl leading-[0.75] font-base text-white">
+									<span class="value" data-value="5">5</span><b>+</b></div>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                    <!--VIDEO WITH ACHIVMENT SECTION END-->
+                    
+                    <!--WE OFFER SERVICES SECTION START-->
+                    <div class="bg-primary relative overflow-hidden sm:pb-22.5 pb-10 sm:pt-30 pt-17.5 before:absolute before:left-0 before:right-0 before:bottom-0 before:z-0 2xl:before:h-55 sm:before:h-40 before:h-0 before:bg-lightturquoise">
+    <div class="container">
+        <div class="relative z-1">
+            <div class="grid grid-cols-12">
+                <div class="lg:col-span-5 col-span-12 px-3.75">
+                    <div class="relative z-1">
+                        <img class="block sm:ml-21.5 pb-17.5 animate-slide-left max-xl:-bottom-73 max-lg:bottom-0 max-xl:relative max-lg:[position:inherit] size-auto" src="assets/images/Left-Man-Image.png" alt="image" width="50" height="127" loading="lazy">
+                        <img class="absolute xl:bottom-0 lg:-bottom-60 bottom-10 left-0 size-auto" src="assets/images/travel-sites.png" alt="image" width="50" height="127" loading="lazy">
+                        <div class="img-bg-shade"></div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 col-span-12 px-3.75">
+                    <div class="trv-we-off-content">
+                        <!-- TITLE START-->
+                            <div class="lg:mr-22.5 text-left mb-15">
+                                <h2 class="!text-white xl:text-46 md:text-40 text-3xl mb-2.5">We Craft Experiences <span class="text-citrusyellow">That Feel Alive</span></h2>  
+                                <p class="text-paleaqua mb-12.5 text-base">Unscripted Travels creates journeys that stay with you. Every trip is designed for people who want something real, something emotional, something they will look back on years later and still feel. This is travel with meaning and intention, made for a new generation of explorers.</p>
+                            </div>
+                        <!-- TITLE END-->
+                        <!--servce box-->
+						<div class="grid grid-cols-12 gap-7.5">
+                            <div class="xl:col-span-4 md:col-span-6 col-span-12 mb-10">
+                                <div class="relative text-center bg-white ml-3 rounded-tl-8xl rounded-br-8xl rounded-tr-2xl rounded-bl-2xl pt-8.75 px-4 pb-15">
+                                    <div>
+                                        <span class="inline-block mb-7.5">
+                                            <img src="assets/images/trv-icon/ship.png" alt="Image" class="max-w-16 w-full inline-block"
+                                            style="filter: brightness(0) saturate(100%) invert(53%) sepia(72%) saturate(1711%) hue-rotate(188deg) brightness(100%) contrast(94%);" width="64" height="64" loading="lazy">
+                                        </span>
+                                    </div>
+                                    <div class="trv-icon-content">
+                                        <h4 class="mb-3.75 text-2xl">Tailor-Made Adventures</h4>
+                                        <p class="p-text">Everything is shaped around you, creating journeys that feel personal and unforgettable in every moment to</p>
+                                    </div>
+                                    <div class="relative after:absolute after:-left-7 after:-top-10.25 after:size-0 after:border-t-[12px] after:border-t-transparent after:border-r-[12px] after:border-r-[#297BD4] after:border-b-[12px] after:border-b-transparent">
+                                        <div class="absolute -left-7 -bottom-15 size-0 border-b-[90px] border-b-[#489CF6] border-r-[80px] border-r-transparent">
+                                            <span class="text-xs/[1.5] font-medium block text-white font-title pt-9 px-2.5 pb-0">Step</span>
+                                            <div class="text-2xl font-black text-white pl-2.5">01</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="xl:col-span-4 md:col-span-6 col-span-12 mb-10">
+                                <div class="relative text-center bg-white ml-3 rounded-tl-8xl rounded-br-8xl rounded-tr-2xl rounded-bl-2xl pt-8.75 px-4 pb-15">
+                                    <div class="inline-block mb-7.5">
+                                        <span>
+											<img src="assets/images/trv-icon/plane-booking.png" alt="Image" class="max-w-16 w-full inline-block"
+											style="filter: brightness(0) saturate(100%) invert(64%) sepia(100%) saturate(1157%) hue-rotate(350deg) brightness(103%) contrast(103%);" width="64" height="64" loading="lazy">
+											
+										</span>
+                                    </div>
+                                    <div class="trv-icon-content">
+                                        <h4 class="mb-3.75 text-2xl">Easy Booking</h4>
+                                        <p class="p-text">Your plans come together smoothly with simple booking and full support, so every trip starts calm, clear, and stress-free</p>
+                                    </div>
+                                    <div class="relative after:absolute after:-left-7 after:-top-10.25 after:size-0 after:border-t-[12px] after:border-t-transparent after:border-r-[12px] after:border-r-[#BA7D0A] after:border-b-[12px] after:border-b-transparent">
+                                        <div class="absolute -left-7 -bottom-15 size-0 border-b-[90px] border-b-[#FFAA0D] border-r-[80px] border-r-transparent">
+                                            <span class="text-xs/[1.5] font-medium block text-white font-title pt-9 px-2.5 pb-0">Step</span>
+                                            <div class="text-2xl font-black text-white pl-2.5">02</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="xl:col-span-4 col-span-12 mb-10">
+                                <div class="relative text-center bg-white ml-3 rounded-tl-8xl rounded-br-8xl rounded-tr-2xl rounded-bl-2xl pt-8.75 px-4 pb-15">
+                                    <div class="inline-block mb-7.5">
+                                        <span>
+											<img src="assets/images/trv-icon/guide-icon.png" alt="Image" class="max-w-16 w-full inline-block"
+											style="filter: brightness(0) saturate(100%) invert(67%) sepia(36%) saturate(2222%) hue-rotate(38deg) brightness(102%) contrast(101%);" width="64" height="64" loading="lazy">
+										</span>
+                                    </div>
+                                    <div class="trv-icon-content">
+                                        <h4 class="mb-3.75 text-2xl">Local Experts, Real Connections</h4>
+                                        <p class="p-text">Local experts help you feel the culture deeply, giving you real bond and memories that stay years later too</p>
+                                    </div>
+									<div class="relative after:absolute after:-left-7 after:-top-10.25 after:size-0 after:border-t-[12px] after:border-t-transparent after:border-r-[12px] after:border-r-[#568603] after:border-b-[12px] after:border-b-transparent">
+                                        <div class="absolute -left-7 -bottom-15 size-0 border-b-[90px] border-b-[#85D200] border-r-[80px] border-r-transparent">
+                                            <span class="text-xs/[1.5] font-medium block text-white font-title pt-9 px-2.5 pb-0">Step</span>
+                                            <div class="text-2xl font-black text-white pl-2.5">03</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rounded-full 2xl:h-50 2xl:mb-7.5 overflow-hidden ">
+                            <img src="assets/images/landscape-pic.jpg" alt="image" class="w-full" width="726" height="199" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="absolute left-0 2xl:bottom-55 bottom-40"><img src="assets/images/building-1.png" alt="Image" width="301" height="640" loading="lazy"></div>
+    <div class="absolute md:right-0 sm:-right-20 -right-38 md:top-0 sm:-top-3 -top-12"><img src="assets/images/Right-top-plane.png" alt="Image" width="257" height="342" loading="lazy"></div>
+</div>
+                    <!--WE OFFER SERVICES SECTION START-->
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="app.js"></script>
+                    <!--POPULAR SEARCH DESTINATION START-->
+                    <div class="bg-eggshell">
+    <div class="pt-10 pb-1.25">
+        <div class="swiper popular-places-logo-swiper">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<div class="text-center">
+						<div class="text-xs leading-3.5 text-primary inline-flex py-1.5 px-2.5 bg-white border border-primary/20 rounded-2lg">
+							<i class="fa-regular fa-flag mr-1"></i>3 Days 2 Nights 
+						</div>
+						<a href="javascript:void(0);" class="font-display text-40 text-citrusyellow leading-14.5 block hover:text-secondary duration-500">Boleng</a>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="text-center">
+						<div class="text-xs leading-3.5 text-primary inline-flex py-1.5 px-2.5 bg-white border border-primary/20 rounded-2lg">
+							<i class="fa-regular fa-flag mr-1"></i>3 Days 2 Nights
+						</div>
+						<a href="javascript:void(0);" class="font-display text-40 text-primary leading-14.5 block hover:text-secondary duration-500">Pasighat</a>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="text-center">
+						<div class="text-xs leading-3.5 text-primary inline-flex py-1.5 px-2.5 bg-white border border-primary/20 rounded-2lg">
+							<i class="fa-regular fa-flag mr-1"></i>4 Days 3 Nights 
+						</div>
+						<a href="javascript:void(0);" class="font-display text-40 text-citrusyellow leading-14.5 block hover:text-secondary duration-500">Ziro Valley</a>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="text-center">
+						<div class="text-xs leading-3.5 text-primary inline-flex py-1.5 px-2.5 bg-white border border-primary/20 rounded-2lg">
+							<i class="fa-regular fa-flag mr-1"></i>5 Days 4 Nights
+						</div>
+						<a href="javascript:void(0);" class="font-display text-40 text-primary leading-14.5 block hover:text-secondary duration-500">Tawang</a>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="text-center">
+						<div class="text-xs leading-3.5 text-primary inline-flex py-1.5 px-2.5 bg-white border border-primary/20 rounded-2lg">
+							<i class="fa-regular fa-flag mr-1"></i>4 Days 3 Night
+						</div>
+						<a href="javascript:void(0);" class="font-display text-40 text-citrusyellow leading-14.5 block hover:text-secondary duration-500">Itanagar</a>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="text-center">
+						<div class="text-xs leading-3.5 text-primary inline-flex py-1.5 px-2.5 bg-white border border-primary/20 rounded-2lg">
+							<i class="fa-regular fa-flag mr-1"></i>3 Days 2 Nights
+						</div>
+						<a href="javascript:void(0);" class="font-display text-40 text-primary leading-14.5 block hover:text-secondary duration-500">Daporijo</a>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="text-center">
+						<div class="text-xs leading-3.5 text-primary inline-flex py-1.5 px-2.5 bg-white border border-primary/20 rounded-2lg">
+							<i class="fa-regular fa-flag mr-1"></i>7 Days 6 Nights
+						</div>
+						<a href="javascript:void(0);" class="font-display text-40 text-citrusyellow leading-14.5 block hover:text-secondary duration-500">Mechuka</a>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="text-center">
+						<div class="text-xs leading-3.5 text-primary inline-flex py-1.5 px-2.5 bg-white border border-primary/20 rounded-2lg">
+							<i class="fa-regular fa-flag mr-1"></i>6 Days 5 Nights 
+						</div>
+						<a href="javascript:void(0);" class="font-display text-40 text-primary leading-14.5 block hover:text-secondary duration-500">Kaziranga</a>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="text-center">
+						<div class="text-xs leading-3.5 text-primary inline-flex py-1.5 px-2.5 bg-white border border-primary/20 rounded-2lg">
+							<i class="fa-regular fa-flag mr-1"></i>4 Days 3 Nights
+						</div>
+						<a href="javascript:void(0);" class="font-display text-40 text-citrusyellow leading-14.5 block hover:text-secondary duration-500">Shillong</a>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="text-center">
+						<div class="text-xs leading-3.5 text-primary inline-flex py-1.5 px-2.5 bg-white border border-primary/20 rounded-2lg">
+							<i class="fa-regular fa-flag mr-1"></i>3 Days 2 Nights 
+						</div>
+						<a href="javascript:void(0);" class="font-display text-40 text-primary leading-14.5 block hover:text-secondary duration-500">Majuli Island</a>
+					</div>
+				</div>
+				
+			</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div>
+            <div class="grid grid-cols-12">
+                <div class="md:col-span-5 col-span-12 px-3.75">
+                    <div class="media">
+                        <img src="assets/images/pop-search-left-pic.png" alt="Image" width="510" height="184" loading="lazy">
+                    </div>
+                </div>
+                <div class="md:col-span-7 col-span-12 px-3.75">
+                    <div class="md:ml-12.5">
+                        <span class="text-primary block font-title font-bold text-28 mb-3.75">Where Your</span>
+                        <h2 class="2xl:!text-40xl lg:!text-30xl sm:!text-90 !text-6xl !leading-[0.75] uppercase !text-eggshelllight !font-black !font-base mb-2.5">Story Begins</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+                    <!--POPULAR SEARCH DESTINATION END-->
+                    
+                    <!--EXPLORE POPULAR TOUR END-->
+                    
+                    <!--3 STEP SECTION START-->
+                    <div class="bg-white md:pt-30 pt-17.5 relative overflow-hidden">
+    <div class="absolute w-150 h-137.5 -left-75 top-1/2 bg-amber [filter:blur(100px)]"></div>
+    <div class="absolute w-150 h-125 -right-75 top-1/2 bg-bluelight [filter:blur(100px)]"></div>
+    <div class="absolute w-150 h-125 left-1/2 -translate-x-1/2 -top-50 bg-amber [filter:blur(100px)]"></div>
+    <div class="container">
+        <div class="section-content">
+            <div class="relative z-1 mb-30">
+                <div class="grid grid-cols-12">
+                    <div class="xl:col-span-7 col-span-12 px-3.75">
+                        <div>
+                            <!-- TITLE START-->
+                            <div class="md:max-w-100 max-w-[inherit] text-left lg:mb-15 mb-7.5">
+                                <h2 class="xl:text-46 md:text-40 text-3xl mb-3.5"><span class="text-citrusyellow">3 Easy Steps </span>for Book Your Next Trip</h2>
+                            </div>
+                            <!-- TITLE END-->
+                            <div class="md:flex max-2xl:justify-center">
+                                <div class="md:mr-6 md:min-w-61.5 min-w-[inherit]">
+                                    <div class="media">
+										<img src="assets/images/offer/pic1.jpg" alt="Image" class="md:w-59 w-[calc(100%_-_12px)] h-66.5 object-cover object-center rounded-xl" width="236" height="266" loading="lazy">
+									</div>
+                                    <div class="rounded-xl md:max-w-59 max-w-[inherit] p-5 pt-15 ml-3 -mt-11 bg-citrusyellow max-md:text-center max-md:mb-7.5">
+                                        <span class="text-primary font-semibold text-lg leading-6 block pb-2.5">Get Special Offer</span>
+                                        <div class="flex max-md:justify-center">
+                                            <h2 class="!text-white !text-95 !leading-[0.75] !font-black !font-base">48</h2>
+                                            <div class="block text-xl text-primary uppercase font-black leading-6">%<span class="block">Off</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="md:mr-6.25">
+                                    <div class="mb-5 bg-white border border-paleaqua p-2.5 sm:pl-12.5 pl-10.5 shadow-[0px_27px_35.9px_rgba(41,137,145,0.2)] rounded-tr-50xl rounded-br-50xl relative sm:ml-12.5 ml-6.5">
+                                        <div class="flex items-center justify-between">
+                                            <div class="sm:size-20 size-15 sm:min-w-20 min-w-15 items-center justify-center flex bg-primary rounded-xl font-base sm:text-42 text-36 text-white font-black absolute sm:-left-12.5 -left-8.5 top-1/2 -translate-y-1/2">
+                                                01
+                                            </div>
+                                            <div>
+                                                <div class="font-title text-primary lg:text-2xl text-xl font-medium leading-[1.2] mb-2.5">Pick Your Vibe</div>
+                                                <p class="text-primary">Mountains, rivers or hidden villages - choose the kind of story you want to live in</p>
+                                            </div>
+                                            <div class="sm:size-25 size-15 sm:min-w-25 min-w-15 bg-citrusyellow rounded-full flex items-center justify-center mr-0">
+                                                <div class="bg-white sm:size-22.5 size-12.5 sm:min-w-22.5 min-w-12.5 flex items-center justify-center rounded-full">
+                                                    <img src="assets/images/trv-icon/destination.png" alt="image" class="sm:max-w-12 max-w-7 w-full" style="filter: brightness(0) saturate(100%) invert(25%) sepia(21%) saturate(4469%) hue-rotate(154deg) brightness(93%) contrast(95%)"  width="48" height="48" loading="lazy">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+									
+									<div class="mb-5 bg-white border border-paleaqua p-2.5 sm:pl-12.5 pl-10.5 shadow-[0px_27px_35.9px_rgba(41,137,145,0.2)] rounded-tr-50xl rounded-br-50xl relative sm:ml-12.5 ml-6.5">
+                                        <div class="flex items-center justify-between">
+                                            <div class="sm:size-20 size-15 sm:min-w-20 min-w-15 items-center justify-center flex bg-primary rounded-xl font-base sm:text-42 text-36 text-white font-black absolute sm:-left-12.5 -left-8.5 top-1/2 -translate-y-1/2">
+                                                02
+                                            </div>
+                                            <div>
+                                                <div class="font-title text-primary lg:text-2xl text-xl font-medium leading-[1.2] mb-2.5">Lock Your Spot</div>
+                                                <p class="text-primary">Drop your details, pay a small advance, and your seat on the next adventure is officially yours.</p>
+                                            </div>
+                                            <div class="sm:size-25 size-15 sm:min-w-25 min-w-15 bg-citrusyellow rounded-full flex items-center justify-center mr-0">
+                                                <div class="bg-white sm:size-22.5 size-12.5 sm:min-w-22.5 min-w-12.5 flex items-center justify-center rounded-full">
+                                                    <img src="assets/images/trv-icon/make-payment.png" alt="image" class="sm:max-w-12 max-w-7 w-full" style="filter: brightness(0) saturate(100%) invert(25%) sepia(21%) saturate(4469%) hue-rotate(154deg) brightness(93%) contrast(95%)" width="48" height="48" loading="lazy">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+									
+									<div class="mb-5 bg-white border border-paleaqua p-2.5 sm:pl-12.5 pl-10.5 shadow-[0px_27px_35.9px_rgba(41,137,145,0.2)] rounded-tr-50xl rounded-br-50xl relative sm:ml-12.5 ml-6.5">
+                                        <div class="flex items-center justify-between">
+                                            <div class="sm:size-20 size-15 sm:min-w-20 min-w-15 items-center justify-center flex bg-primary rounded-xl font-base sm:text-42 text-36 text-white font-black absolute sm:-left-12.5 -left-8.5 top-1/2 -translate-y-1/2">
+                                                03
+                                            </div>
+                                            <div>
+                                                <div class="font-title text-primary lg:text-2xl text-xl font-medium leading-[1.2] mb-2.5">Pack. Post. Repeat.</div>
+                                                <p class="text-primary">Get your itinerary, permits and packing list, then just show up, make memories and spam your feed.</p>
+                                            </div>
+                                            <div class="sm:size-25 size-15 sm:min-w-25 min-w-15 bg-citrusyellow rounded-full flex items-center justify-center mr-0">
+                                                <div class="bg-white sm:size-22.5 size-12.5 sm:min-w-22.5 min-w-12.5 flex items-center justify-center rounded-full">
+                                                    <img src="assets/images/trv-icon/travelling.png" alt="image" class="sm:max-w-12 max-w-7 w-full" style="filter: brightness(0) saturate(100%) invert(25%) sepia(21%) saturate(4469%) hue-rotate(154deg) brightness(93%) contrast(95%)" width="48" height="48" loading="lazy">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+									
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="xl:col-span-5 col-span-12 px-3.75">
+                        <div class="relative z-1 pt-22.5 max-2xl:flex max-2xl:justify-center">
+                            <img src="assets/images/hotballon-Left.png" alt="img" class="w-17 absolute left-0 2xl:-bottom-106.25 bottom-0 animate-slide-top2" width="68" height="98" loading="lazy">
+                            <img src="assets/images/hotballon-right.png" alt="img" class="sm:w-32 w-25 absolute sm:right-15 right-0 top-2.5 z-1" width="128" height="198" loading="lazy">
+                            <img src="assets/images/cloud-1.png" alt="Image" class="absolute z-2 w-2/5 -left-7.5 top-40 animate-smooth-up-down" width="204" height="169" loading="lazy">
+                            <img src="assets/images/cloud-2.png" alt="Image" class="absolute right-0 top-10 z-3 animate-smooth-up-down2" width="297" height="225" loading="lazy">
+                            <div class="2xl:absolute after:absolute after:bottom-[-30%] after:left-1/2 after:-translate-1/2 sm:after:size-125 after:size-80 after:rounded-full after:bg-eggshell after:-z-1">
+								<img src="assets/images/Girl-Image.png" alt="img" class="mr-20 relative z-5" width="440" height="577" loading="lazy">
+                                <span class="text-primary font-display sm:text-40 text-36 flex items-baseline absolute 2xl:left-[85%] sm:left-[90%] left-[78%] text-left rotate-[-90deg] origin-[0_0] sm:pl-12.5">For <b class="text-citrusyellow text-98 font-normal leading-[1]">Summer!</b></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
- <script src="app.js"></script>
+        <div class="overflow-hidden rounded-br-25xl rounded-bl-25xl bg-primary pt-27.5 pb-17.5 bg-[url(../images/w-cho-top.png),url(../images/w-cho-btm.png)] bg-no-repeat [background-position:top_left,bottom_left] flex flex-wrap items-center justify-between">
+            <div class="max-w-122.5 xl:ml-45 ml-10 mb-7.5">
+                <h3 class="!font-display !text-40 mb-7.5 !text-white">
+                    Why Choose Us!
+                </h3>
+                <div class="mb-3.75">
+                    <ul class="sm:flex text-white flex-wrap">
+                        <li class="font-title font-medium text-lg text-white sm:w-1/2 pr-2.5 flex mb-5">
+							<i class="size-7.5 max-w-7.5 mr-6 rounded-full bg-citrusyellow !flex items-center justify-center text-white fa-solid fa-check"></i>
+							<span>Zero Boring Plans</span>
+						</li>
+                        <li class="font-title font-medium text-lg text-white sm:w-1/2 pr-2.5 flex mb-5">
+							<i class="size-7.5 max-w-7.5 mr-6 rounded-full bg-citrusyellow !flex items-center justify-center text-white fa-solid fa-check"></i>
+							<span>Student‑Friendly Prices</span>
+						</li>
+                        <li class="font-title font-medium text-lg text-white sm:w-1/2 pr-2.5 flex mb-5">
+							<i class="size-7.5 max-w-7.5 mr-6 rounded-full bg-citrusyellow !flex items-center justify-center text-white fa-solid fa-check"></i>
+							<span>Free Trip Brainstorm</span>
+						</li>
+                        <li class="font-title font-medium text-lg text-white sm:w-1/2 pr-2.5 flex mb-5">
+							<i class="size-7.5 max-w-7.5 mr-6 rounded-full bg-citrusyellow !flex items-center justify-center text-white fa-solid fa-check"></i>
+							<span>Trusted Local Crews</span>
+						</li>
+                    </ul>
+                </div>
+                <a href="destination-detail.html" class="site-button butn-bg-shape">Discover More</a>
+            </div>
+            <div class="mx-auto lg:mr-40 max-lg:text-center">
+                <div class="mb-2.5">
+                    <img src="assets/images/24-Image.png" alt="image" width="147" height="163" loading="lazy">
+                </div>
+                <div>
+                    <h3 class="!font-black xl:!text-58 !text-40 !leading-[0.75] mb-2.5 uppercase !text-white !font-base">Call Us</h3>
+                    <span class="block font-bold xl:text-38 text-28 leading-[1.2] uppercase text-secondary">6358006660</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                    <!--3 STEP SECTION END-->
+                    
+                    <!--TESTIMONIAL SECTION START-->
+                    <div class="sm:py-22.5 py-10 relative overflow-hidden bg-white">
+    <div class="container">
+		<!-- TITLE START-->
+        <div class="text-center max-w-150 mx-auto xl:mb-15 mb-0">
+            <h2 class="xl:text-46 md:text-40 text-3xl mb-2.5">What Our Travelers<span class="text-citrusyellow"> Says!</span></h2>
+            <p class="text-base">Unfiltered reviews from backpackers like you</p>
+            <div class="-mt-7">
+                <img src="assets/images/background/Title-Separator.png" alt="Image" class="w-117.5 inline-block" width="470" height="70" loading="lazy">
+            </div>
+        </div>
+        <!-- TITLE END-->
+        <div>
+            <div class="text-center relative font-bold 2xl:text-40xl/48 xl:text-30xl/48 lg:text-80 max-lg:mb-7.5 sm:text-6xl text-40 tracking-[0.12em] uppercase bg-primary-gradient bg-clip-text 
+			[-webkit-text-fill-color:transparent] 
+			bg-[linear-gradient(to_bottom,#066168_15%,rgba(255,170,13,0.3019607843)_60%,#fff_85%)]">
+                Testimonial
+                <img src="assets/images/airplane-takeoff1.png" alt="Image" class="absolute xl:-top-5 sm:-top-6 top-0 left-1/2 -translate-x-1/2 max-xl:w-[40%] max-md:w-[60%]" width="493" height="116" loading="lazy">
+            </div>
 
+            <div class="relative">
+                <!--Image Slider-->
+                <div class="swiper testimonial-content-sld">
+                    <div class="swiper-wrapper">
+                        <!--1-->
+                        <div class="swiper-slide">
+                            <div class="md:flex items-center bg-white">
+                                <div class="mb-0 relative lg:max-w-93.75 max-w-62.5 z-1 lg:mr-23.75 md:mr-7.5 max-md:mx-auto max-md:mb-7.5 before:absolute before:size-95 before:rounded-full before:bg-citrusyellow before:opacity-10 before:-right-23.5 before:top-1/2 before:-translate-y-1/2 before:-z-1 after:absolute after:size-82.5 after:rounded-full after:bg-primary after:-right-10.5 after:top-1/2 after:-translate-y-1/2 after:-z-1 max-lg:after:hidden max-lg:before:hidden">
+                                    <img src="assets/images/trv-testimonial2/pic1.jpg" alt="Image" class="rounded-3xl" width="375" height="489" loading="lazy">
+                                </div>
+                                <div class="lg:max-w-122.5 max-w-85 ml-auto max-lg:mr-auto max-md:mx-auto">
+                                    <div class="flex items-center justify-between mb-6.25 max-sm:flex-col max-sm:text-center sm:items-start">
+                                        <div>
+                                            <h4 class="!font-display lg:!text-36 !text-28 !font-normal text-primary mb-0">Devansh Patel</h4>
+                                            <span class="font-title text-xl font-medium text-citrusyellow inline-block">Tourist</span>
+                                        </div>
+                                        <div>
+                                            <img src="assets/images/trv-icon/Quote.png" alt="img" class="lg:max-w-17.5 max-w-11 max-h-14.5 w-full" style="filter: brightness(0) saturate(100%) invert(25%) sepia(21%) saturate(4469%) hue-rotate(154deg) brightness(93%) contrast(95%)" width="70" height="58" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <p class="font-title lg:text-2xl text-lg text-primary mb-5 max-lg:pr-7.5 max-md:pr-0">
+                                        I didn't just visit Boleng. I became part of it. Shared meals around a fire, learned songs in tribal language, understood what 'home' really means.
+                                    </p>
+                                    <div class="md:float-right text-citrusyellow text-base mr-0.75">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--2-->
+                        <div class="swiper-slide">
+                            <div class="md:flex items-center bg-white">
+                                <div class="mb-0 relative lg:max-w-93.75 max-w-62.5 z-1 lg:mr-23.75 md:mr-7.5 max-md:mx-auto max-md:mb-7.5 before:absolute before:size-95 before:rounded-full before:bg-citrusyellow before:opacity-10 before:-right-23.5 before:top-1/2 before:-translate-y-1/2 before:-z-1 after:absolute after:size-82.5 after:rounded-full after:bg-primary after:-right-10.5 after:top-1/2 after:-translate-y-1/2 after:-z-1 max-lg:after:hidden max-lg:before:hidden">
+                                    <img src="assets/images/trv-testimonial2/pic2.jpg" alt="Image" class="rounded-3xl" width="375" height="489" loading="lazy">
+                                </div>
+                                <div class="lg:max-w-122.5 max-w-85 ml-auto max-lg:mr-auto max-md:mx-auto">
+                                    <div class="flex items-center justify-between mb-6.25 max-sm:flex-col max-sm:text-center sm:items-start">
+                                        <div>
+                                            <h4 class="!font-display lg:!text-36 !text-28 !font-normal text-primary mb-0">Riya Sharma</h4>
+                                            <span class="font-title text-xl font-medium text-citrusyellow inline-block">Travler</span>
+                                        </div>
+                                        <div>
+                                            <img src="assets/images/trv-icon/Quote.png" alt="image" class="lg:max-w-17.5 max-w-11 max-h-14.5 w-fulll" style="filter: brightness(0) saturate(100%) invert(25%) sepia(21%) saturate(4469%) hue-rotate(154deg) brightness(93%) contrast(95%)" width="70" height="58" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <p class="font-title lg:text-2xl text-lg text-primary mb-5 max-lg:pr-7.5 max-md:pr-0">
+                                        Loved the small group. With just a few of us, every conversation with locals felt genuine.
+                                    </p>
+                                    <div class="md:float-right text-citrusyellow text-base mr-0.75">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--3-->
+                        <div class="swiper-slide">
+                            <div class="md:flex items-center bg-white">
+                                <div class="mb-0 relative lg:max-w-93.75 max-w-62.5 z-1 lg:mr-23.75 md:mr-7.5 max-md:mx-auto max-md:mb-7.5 before:absolute before:size-95 before:rounded-full before:bg-citrusyellow before:opacity-10 before:-right-23.5 before:top-1/2 before:-translate-y-1/2 before:-z-1 after:absolute after:size-82.5 after:rounded-full after:bg-primary after:-right-10.5 after:top-1/2 after:-translate-y-1/2 after:-z-1 max-lg:after:hidden max-lg:before:hidden">
+                                    <img src="assets/images/trv-testimonial2/pic3.jpg" alt="Image" class="rounded-3xl" width="375" height="489" loading="lazy">
+                                </div>
+                                <div class="lg:max-w-122.5 max-w-85 ml-auto max-lg:mr-auto max-md:mx-auto">
+                                    <div class="flex items-center justify-between mb-6.25 max-sm:flex-col max-sm:text-center sm:items-start">
+                                        <div>
+                                            <h4 class="!font-display lg:!text-36 !text-28 !font-normal text-primary mb-0">Jay Pancholi</h4>
+                                            <span class="font-title text-xl font-medium text-citrusyellow inline-block">Tourist</span>
+                                        </div>
+                                        <div>
+                                            <img src="assets/images/trv-icon/Quote.png" alt="image" class="lg:max-w-17.5 max-w-11 max-h-14.5 w-fulll" style="filter: brightness(0) saturate(100%) invert(25%) sepia(21%) saturate(4469%) hue-rotate(154deg) brightness(93%) contrast(95%)" width="70" height="58" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <p class="font-title lg:text-2xl text-lg text-primary mb-5 max-lg:pr-7.5 max-md:pr-0">
+                                         This wasn't tourism. It was awakening. Real conversations, real families, real impact. I left pieces of my heart there.
+                                    </p>
+                                    <div class="md:float-right text-citrusyellow text-base mr-0.75">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       <!--1-->
+                        <div class="swiper-slide">
+                            <div class="md:flex items-center bg-white">
+                                <div class="mb-0 relative lg:max-w-93.75 max-w-62.5 z-1 lg:mr-23.75 md:mr-7.5 max-md:mx-auto max-md:mb-7.5 before:absolute before:size-95 before:rounded-full before:bg-citrusyellow before:opacity-10 before:-right-23.5 before:top-1/2 before:-translate-y-1/2 before:-z-1 after:absolute after:size-82.5 after:rounded-full after:bg-primary after:-right-10.5 after:top-1/2 after:-translate-y-1/2 after:-z-1 max-lg:after:hidden max-lg:before:hidden">
+                                    <img src="assets/images/trv-testimonial2/pic4.jpg" alt="Image" class="rounded-3xl" width="375" height="489" loading="lazy">
+                                </div>
+                                <div class="lg:max-w-122.5 max-w-85 ml-auto max-lg:mr-auto max-md:mx-auto">
+                                    <div class="flex items-center justify-between mb-6.25 max-sm:flex-col max-sm:text-center sm:items-start">
+                                        <div>
+                                            <h4 class="!font-display lg:!text-36 !text-28 !font-normal text-primary mb-0">Shivam Gautam</h4>
+                                            <span class="font-title text-xl font-medium text-citrusyellow inline-block">Tourist</span>
+                                        </div>
+                                        <div>
+                                            <img src="assets/images/trv-icon/Quote.png" alt="image" class="lg:max-w-17.5 max-w-11 max-h-14.5 w-fulll" style="filter: brightness(0) saturate(100%) invert(25%) sepia(21%) saturate(4469%) hue-rotate(154deg) brightness(93%) contrast(95%)" width="70" height="58" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <p class="font-title lg:text-2xl text-lg text-primary mb-5 max-lg:pr-7.5 max-md:pr-0">
+                                        Knowing our payments went straight to local guides and families made the trip feel meaningful.
+                                    </p>
+                                    <div class="md:float-right text-citrusyellow text-base mr-0.75">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--2-->
+                        
+                    </div>
+                    <div class="testimonial-content-sld-control">
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+                <!--Thumbnail Slider-->
+                <div class="swiper testimonial-thum-sld xl:h-92.5 h-auto !overflow-hidden xl:w-28.75 w-62.5 xl:!absolute xl:top-1/2 top-auto xl:left-128.75 left-0 xl:-translate-y-1/2 transform-none max-xl:mt-5 xl:!mx-auto md:!mx-0 !mx-auto !relative">
+                    <div class="swiper-wrapper xl:flex-col">
+                        <div class="swiper-slide">
+                            <div class="duration-500">
+                                <img src="assets/images/trv-testimonial2/pic1.jpg" alt="Image" class="duration-500 size-19 object-cover object-center rounded-xl cursor-pointer" width="76" height="76" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="duration-500">
+                                <img src="assets/images/trv-testimonial2/pic2.jpg" alt="Image"  class="duration-500 size-19 object-cover object-center rounded-xl cursor-pointer" width="76" height="76" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="duration-500">
+                                <img src="assets/images/trv-testimonial2/pic3.jpg" alt="Image"  class="duration-500 size-19 object-cover object-center rounded-xl cursor-pointer" width="76" height="76" loading="lazy">
+                            </div>
+                       </div>
+                        <div class="swiper-slide">
+                            <div class="duration-500">
+                                <img src="assets/images/trv-testimonial2/pic4.jpg" alt="Image"  class="duration-500 size-19 object-cover object-center rounded-xl cursor-pointer" width="76" height="76" loading="lazy">
+                            </div>
+                        </div>
 
-
+                        <div class="swiper-slide">
+                            <div class="duration-500">
+                                <img src="assets/images/trv-testimonial2/pic1.jpg" alt="Image"  class="duration-500 size-19 object-cover object-center rounded-xl cursor-pointer" width="76" height="76" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="duration-500">
+                                <img src="assets/images/trv-testimonial2/pic2.jpg" alt="Image"  class="duration-500 size-19 object-cover object-center rounded-xl cursor-pointer" width="76" height="76" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="duration-500">
+                                <img src="assets/images/trv-testimonial2/pic3.jpg" alt="Image"  class="duration-500 size-19 object-cover object-center rounded-xl cursor-pointer" width="76" height="76" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="duration-500">
+                                <img src="assets/images/trv-testimonial2/pic4.jpg" alt="Image"  class="duration-500 size-19 object-cover object-center rounded-xl cursor-pointer" width="76" height="76" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="absolute -right-13.75 top-2/5 w-27.5 animate-slide-top"><img src="assets/images/hotballon-right.png" alt="image"></div>
+</div>
+                    <!--TESTIMONIAL SECTION End-->
+                    
+                    <!-- ADVENTURE SECTION START -->
+                    <div class="py-22.5 bg-cover relative text-center overflow-hidden bg-[url(../images/background/adv-bg.jpg)] trv-adventure-st1">
+    <div class="rounded-full inline-block relative mb-0 circle-text2">
+        <div class="bg-primary rounded-full sm:size-55 size-50 flex items-center justify-center emblem-wrap">
+            <div class="font-base text-xs font-normal tracking-[10px] uppercase mx-auto sm:size-50 size-45 rounded-full text-white text-center bg-transparent animate-spinZ emblem">Want-to-see-our-top-destinations-</div>
+            <i class="mx-auto sm:size-31 size-25 text-center flex items-center justify-center rounded-full bg-[#0A747C] absolute left-1/2 top-1/2 -translate-1/2 overflow-hidden"><img src="assets/images/advanture-st1.png" alt="In Circle Pic" class="h-auto sm:max-w-18.5 max-w-15.5" width="74" height="74" loading="lazy"></i>
+        </div>
+    </div>
+    <h2 class="!font-display leading-[1] xl:!text-50xl md:!text-30xl sm:!text-80 !text-40 px-7.5 !font-normal !text-white md:text-shadow-[2px_5px_0px_rgba(255,255,255,0.72)] max-sm:mt-7.5">Adventure</h2>
+    <p class="font-title uppercase xl:text-50 sm:text-3xl text-22 leading-[1.2] font-normal text-white sm:mb-7.5 max-sm:my-2.5">It's time to Travel </p>
+    <a href="contact.html" class="site-button butn-bg-shape">Booking Now</a>
+</div>
+                    <!-- ADVENTURE SECTION END -->
+                    
+                    <!--ALL BLOGS SECTION START-->
+                    
+                    <!--ALL BLOGS SECTION END-->
+                </div>
+                <!-- CONTENT END -->
+                
+                <!-- FOOTER START -->
+                <footer class="pt-20 bg-primary bg-cover bg-[url(../images/background/ftr-dark-bg.png)]">
+	<div class="-mt-40">
+		<div class="container bg-citrusyellow rounded-3xl md:flex items-center justify-between !py-6.25 lg:!px-17.5 sm:!px-10.5 !px-5.5 max-w-324">
+			
+		</div>
+	</div>
+    <!-- FOOTER BLOCKES START -->  
+    <div class="container">
+        <div class="sm:pt-20 pt-10 text-white/06 border-b border-primary">
+            <div class="grid grid-cols-12">
+                <div class="lg:col-span-3 col-span-12 sm:px-3.75">
+                    <div class="mb-10">
+                        <div class="mb-10 text-center block max-w-48.25 after:table after:clear-both">
+                            <a href="index.html"><img src="assets/images/logo-dark.png" alt="logo" width="193" height="81" loading="lazy"></a>
+                        </div>
+                        <p class="sm:pr-12.5 mb-4 text-base text-white/50">  </p>
+						<ul class="mt-5">
+							
+							<li class="inline-flex xl:size-11.5 size-10.5 bg-citrusyellow xl:mr-2.5 mr-1.5 rounded-4xl justify-center items-center duration-500 hover:rounded-2lg group">
+								<a class="inline-flex size-9 bg-primary rounded-4xl justify-center items-center duration-500 text-white text-lg group-hover:rounded-2lg" href="https://www.facebook.com" target="_blank"> 
+									<i class="fa-brands fa-facebook group-hover:rotate-y-[360deg] group-hover:scale-[1.2] !inline-block duration-[0.5s] group-hover:text-citrusyellow"></i>
+								</a>
+							</li>
+							<li class="inline-flex xl:size-11.5 size-10.5 bg-citrusyellow xl:mr-2.5 mr-1.5 rounded-4xl justify-center items-center duration-500 hover:rounded-2lg group">
+								<a class="inline-flex size-9 bg-primary rounded-4xl justify-center items-center duration-500 text-white text-lg group-hover:rounded-2lg" href="https://www.instagram.com/unscriptedtravels_/" target="_blank">
+									<i class="fa-brands fa-instagram group-hover:rotate-y-[360deg] group-hover:scale-[1.2] !inline-block duration-[0.5s] group-hover:text-citrusyellow"></i>
+								</a>
+							</li>
+							
+						</ul>
+                    </div>    
+                </div>
+                <div class="lg:col-span-2 col-span-6 mb-5 sm:px-3.75">
+                    <div class="mb-10">
+                        <h3 class="!text-white mb-7.5 relative xl:text-28 text-2xl">Explore</h3>
+                        <ul>
+                            <li class="block w-full py-0.5 overflow-hidden"><a class="pb-1.5 block duration-500 text-base text-paleaqua font-semibold hover:text-citrusyellow" href="about-1.html">About us</a></li>
+                            <li class="block w-full py-0.5 overflow-hidden"><a class="pb-1.5 block duration-500 text-base text-paleaqua font-semibold hover:text-citrusyellow" href="faq.html">FAQ's</a></li>
+                        </ul>
+                    </div>
+                </div>
+				
+                <div class="lg:col-span-2 col-span-6 mb-5 sm:px-3.75">
+                    <div class="mb-10">
+                        <h3 class="!text-white mb-7.5 relative xl:text-28 text-2xl">Legal</h3>
+                        <ul>
+                            <li class="block w-full py-0.5 overflow-hidden"><a class="pb-1.5 block duration-500 text-base text-paleaqua font-semibold hover:text-citrusyellow" href="about-1.html">Terms & Condition</a></li>
+                            <li class="block w-full py-0.5 overflow-hidden"><a class="pb-1.5 block duration-500 text-base text-paleaqua font-semibold hover:text-citrusyellow" href="faq.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="lg:col-span-3 sm:col-span-6 col-span-12 sm:px-3.75">
+                    <div class="mb-10">
+                        <ul> 
+                            <li class="mb-2.5 relative flex items-center">
+                                <div class="xl:size-14 size-12 xl:min-w-14 min-w-12 rounded-full mr-3.5 bg-white/40 flex items-center justify-center">
+									<i class="fa-solid fa-phone text-xl text-white"></i>
+								</div>
+                                <a href="tel:1236540214">
+									<span class="xl:text-3xl text-2xl text-citrusyellow font-normal font-display">6358006660</span>
+								</a>
+                            </li>
+                            <li class="mb-2.5 relative flex items-center">
+                                <div class="xl:size-14 size-12 xl:min-w-14 min-w-12 rounded-full mr-3.5 bg-white/40 flex items-center justify-center">
+									<i class="fa-solid fa-envelope text-xl text-white"></i>
+								</div>
+                                <a class="black text-paleaqua font-semibold xl:text-lg text-sm font-base" href="mailto:unscriptedtravelss@gmail.com">UnscriptedTravelss@gmail.com</a>
+                            </li>
+                            <li class="relative flex items-center">
+                                <div class="xl:size-14 size-12 xl:min-w-14 min-w-12 rounded-full mr-3.5 bg-white/40 flex items-center justify-center">
+									<i class="fa-solid fa-house text-xl text-white"></i>
+								</div>
+                                <span class="black text-paleaqua font-semibold xl:text-lg text-sm font-base">Vadodara,Gujarat - India</span>
+                            </li>
+                        </ul>  
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+		<div class="py-10 text-white relative z-1 font-normal after:absolute after:bg-primary after:max-w-135 after:h-px after:left-1/2 after:top-0 after:-translate-x-1/2">
+			<div class="container">
+				<p class="copyrights-text text-center text-sm font-semibold">© <span class="current-year">2025</span> <a href="https://unscriptedtravels.site/" target="_blank"><span class="inline-block text-citrusyellow uppercase text-center text-sm font-semibold">Unscripted Travels</span></a> All  Rights Reserved.</p>
+			</div>
+		</div>		
+    </div>
+    <!-- FOOTER COPYRIGHT -->
+</footer>
+                <!-- FOOTER END -->
+            </div>
+        </div>
+        
+        <!-- BUTTON TOP START -->
+        <button class="scroltop"><span class="fa fa-angle-up  relative" id="btn-vibrate"></span></button>
+      
+        
+<div id="offcanvas-right" class="fixed top-0 right-0 z-9999999 h-screen overflow-y-auto transition-transform translate-x-full bg-black/20 backdrop-blur-[5px] sm:max-w-125 max-w-88 custom-scroll">
+	<button type="button" class="absolute right-0 top-6 text-[#443935] bg-citrusyellow text-base size-7 cursor-pointer rounded m-6.25" data-drawer-hide="offcanvas-right" aria-label="Close">
+		<i class="fa-solid fa-xmark" aria-hidden="true"></i>
+	</button>
+	<div class="pt-30 pb-10 px-8">
+		<div class="">
+			<div class="mb-15">
+				<img src="assets/images/logo-dark.png" alt="Image" class="max-w-33.5">
+			</div>
+			<div class="trv-side-pnl-content">
+	
+				<div class="mb-15">
+					<h3 class="text-28 !text-white mb-5">It’s Time to Travel Differently</h3>
+					<h3 class="!text-secondary text-5xl mb-5 uppercase">PLAN YOUR NEXT UNSCRIPTED JOURNEY</h3>
+					<p class="text-base !text-white/50">Travel with real families, hear real stories, and create memories that aren’t scripted by big tour companies. Small groups, slow travel, and honest human connection.</p>   
+				</div>
+				
+				<h3 class="text-28 !text-white mb-5">Choose how deeply you want to disconnect</h3>
+				<ul class="flex justify-between pb-10 mb-10 relative after:w-75 after:bg-white/15 after:h-px after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2">
+					<li>
+						<h2 class="!text-secondary text-34 mb-2">1</h2>
+						<span class="!text-white text-lg font-medium font-title">Connection Path</span>
+					</li>
+					<li>
+						<h2 class="!text-secondary text-34 mb-2">2</h2>
+						<span class="!text-white text-lg font-medium font-title">Deep Dive Path</span>
+					</li>
+					<li>
+						<h2 class="!text-secondary text-34 mb-2">3</h2>
+						<span class="!text-white text-lg font-medium font-title">Full Detox Path</span>
+					</li>
+				</ul>
+	
+				<ul class="mt-5">
+	
+					<li class="inline-flex size-11.5 bg-citrusyellow mr-2.5 rounded-4xl justify-center items-center duration-500 hover:rounded-2lg group">
+						<a class="inline-flex size-9 bg-primary rounded-full justify-center items-center duration-500 text-white text-lg" href="https://www.facebook.com">
+							<i class="fa-brands fa-facebook group-hover:rotate-y-[360deg] group-hover:scale-[1.2] !inline-block duration-[0.5s] group-hover:text-citrusyellow"></i>
+						</a>
+					</li>
+					<li class="inline-flex size-11.5 bg-citrusyellow mr-2.5 rounded-4xl justify-center items-center duration-500 hover:rounded-2lg group">
+						<a class="inline-flex size-9 bg-primary rounded-full justify-center items-center duration-500 text-white text-lg" href="https://www.instagram.com/unscriptedtravels_/">
+							<i class="fa-brands fa-instagram group-hover:rotate-y-[360deg] group-hover:scale-[1.2] !inline-block duration-[0.5s] group-hover:text-citrusyellow"></i>
+						</a>
+					</li>
+				</ul>
+	
+	
+			</div>
+		</div>
+	</div>
+</div>
+    </div>
+    
+<!-- JAVASCRIPT  FILES ========================================= --> 
+<script src="assets/vendor/gsap/gsap.min.js"></script>
+<script src="assets/vendor/gsap/ScrollSmoother.js"></script>
+<script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/flatpickr/js/flatpickr.js"></script>
+<script src="assets/js/jquery-3.7.1.min.js"></script>
+<script src="assets/js/theia-sticky-sidebar.js"></script>
+<script  src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/isotope.pkgd.min.js"></script>
+<script src="assets/js/dz.carousel.js"></script>
+<script src="assets/js/lc_lightbox.lite.js"></script>
+<script src="assets/vendor/magnific-popup/magnific-popup.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script> <!-- Google API For Recaptcha  -->
+ <script src="assets/vendor/nouislider/nouislider.min.js"></script>
+<script src="assets/vendor/group-slide/group-loop.js"></script>
+<script src="assets/js/dz.ajax.js"></script><!-- CONTACT JS  -->
+<script src="assets/vendor/xmenu/xmenu.js"></script>
+<script src="assets/js/animation.js"></script>
+<script src="assets/js/custom.js"></script>
 </body>
 </html>
